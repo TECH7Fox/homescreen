@@ -20,6 +20,6 @@ $row = $sth->fetch();
 </div>
 <div class="card-footer" style="height: 25%;">
     <a role="button" href="alarm.php" style="height: 100%; text-align: center;" class="btn btn-block btn-lg btn-danger">
-        <i style="font-size: 400%; transform: translateY(-50%); margin-top: 8%;" class="fas fa-lock"></i>
+        <i style="font-size: 3em; transform: translateY(-50%); margin-top: 8%;" class="fas fa-lock"></i>
     </a>
 </div>

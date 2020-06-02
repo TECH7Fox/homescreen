@@ -10,16 +10,16 @@
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" 
         crossorigin="anonymous">
     <script src="js/jquery-3.3.1.min.js"></script>
-    <?php echo strpos($_SERVER['PHP_SELF'], 'index.php')?'<script src="js/getData.js"></script>':""; ?>
+    
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-select.min.js"></script>
     <?php include "scripts/custom-style.php"; ?>
-    
 </head>
 <body id="body" class="overflow-hidden" style="padding-top: 10vh;">
     <div class="se-pre-con"></div>
-    <?php if (!strpos($_SERVER['PHP_SELF'], 'alarm.php') && !strpos($_SERVER['PHP_SELF'], 'armed.php')) { ?>
+    <?php if (!strpos($_SERVER['PHP_SELF'], 'alarm.php') && !strpos($_SERVER['PHP_SELF'], 'arm.php') && !strpos($_SERVER['PHP_SELF'], 'unarm.php')) { ?>
+        <script src="js/getData.js"></script>
         <header>
             <nav style="height: 10vh;" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark justify-content-between overflow-hidden">
                 <h3><a href="index.php" class="text-white"><i class="fas fa-home"></i> HomeScreen <small class="text-muted">Version 3</small></a></h3>
@@ -27,7 +27,7 @@
                 <div>
                     <a role="button" href="settings.php" class="btn btn-outline-primary btn-lg ml-2"><i class="fas fa-cogs"></i></a>
                     <a role="button" href="cams.php" class="btn btn-outline-primary btn-lg ml-2"><i class="fas fa-cloud"></i></a>
-                    <a role="button" href="" class="btn btn-outline-primary btn-lg ml-2"><i class="fas fa-lock"></i></a>
+                    <a role="button" href="alarm.php" class="btn btn-outline-primary btn-lg ml-2"><i class="fas fa-lock"></i></a>
                     <a role="button" href="index.php" class="btn btn-outline-primary btn-lg ml-2"><i class="fas fa-home"></i></a>
                 </div>
             </nav>

@@ -2,20 +2,29 @@ function GetData() {
     $.ajax({                                      
         url: 'api/serverStatus.php'
     }).done(function( table ) {
-        document.getElementById('serverStatus').innerHTML = table;
+        $('#serverStatus').html(table);
     });
 
     $.ajax({                                      
         url: 'api/notifications.php'
     }).done(function( table ) {
-        document.getElementById('notifications').innerHTML = table;
+        $('#notifications').html(table);
     });
 
     $.ajax({                                      
         url: 'api/message.php'
     }).done(function( table ) {
-        document.getElementById('message').innerHTML = table;
+        $('#message').html(table);
     });
+
+    $.ajax({                                      
+        url: 'api/alarm.php'
+    }).done(function( table ) {
+        if (table !== "off") {
+            window.location.href = "arm.php";
+        }
+    });
+   
 }
 
 GetData();

@@ -5,7 +5,7 @@ USE homescreen;
 DROP TABLE IF EXISTS settings; 
 CREATE TABLE settings ( 
   name VARCHAR(30),
-  value VARCHAR(30),
+  value VARCHAR(100),
   PRIMARY KEY (name)
 ); 
 
@@ -46,6 +46,7 @@ CREATE TABLE messages (
 );
 
 INSERT INTO settings (name, value) VALUES ("alarm", "off");
+INSERT INTO settings (name, value) VALUES ("keycode", "2c17079b4da72e80c1875f7d2feefe79322a71544c5de1c838ee0230f3598312");
 INSERT INTO settings (name, value) VALUES ("vacation_mode", "off");
 INSERT INTO settings (name, value) VALUES ("outdoor_lights", "off");
 INSERT INTO settings (name, value) VALUES ("loading_screen", "fox");
