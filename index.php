@@ -1,10 +1,10 @@
 <?php include "templates/header.php"; ?>
     <main>
-        <div class="row" style="margin: 0; height: 88vh;">
+        <div class="row" style="margin: 0; height: 86vh;">
             <div class="col-3 card">
                 <h4 class="card-header">Devices</h4>
-                <div class="scrollTable">
-                    <table class="table text-center m-0 custom-scrollbar-css">
+                <div class="scrollable-table">
+                    <table class="table text-center m-0">
                         <thead>
                             <tr class="table-dark">
                                 <th scope="col">Type</th>
@@ -22,7 +22,7 @@
 
             <div class="col-3 card">
                 <h4 class="card-header">Messages</h4>
-                <div class="scrollTable">
+                <div class="scrollable-table">
                     <table class="table text-center m-0">
                         <thead>
                             <tr class="table-dark">

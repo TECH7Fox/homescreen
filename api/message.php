@@ -10,7 +10,7 @@ $row = $sth->fetch();
 ?>
 
 <h4 class="card-header">Main</h4>
-<div style='padding: 25px; height: 100%;background: url("<?php echo $row["background"]; ?>"); background-position: 90% 100%; background-repeat: no-repeat; background-size: 50%;'>
+<div style='padding: 25px; height: 85%;background: url("<?php echo $row["background"]; ?>"); background-position: 90% 100%; background-repeat: no-repeat; background-size: 50%;'>
     <h1 class="display-4"><?php echo $row["title"]; ?></h1>
     <div id="main-text">
         <p class="lead"><?php echo $row["message"]; ?></p>

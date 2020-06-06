@@ -19,7 +19,7 @@ include "templates/header.php";
 
             function UpdateProgressBar() {
                 progress = parseInt($('#armingProgress').attr('aria-valuenow')) + 1;
-                if (progress >= 100) { setTimeout(function(){ location.href = "arm.php"; }, 1000);  }
+                if (progress >= 100) { setTimeout(function(){ window.location.href = "arm.php"; }, 1000); }
                 $('#armingProgress').attr('aria-valuenow', progress).css('width', progress+'%');
             }
         

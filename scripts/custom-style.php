@@ -12,6 +12,8 @@ video {
 .alert {
     margin: 0 !important;
 }
+
+
 .se-pre-con {
     position: fixed;
     left: 0px;
@@ -46,10 +48,16 @@ table {
     margin: 0;
 }
 
-.scrollTable {
-    height: 100%;
+.scrollable-table {
     overflow-y: scroll;
-    overflow-x: hidden;
+    height: 20%;
+}
+
+.weather {
+    width: 9vh;
+    height: 9vh;
+    filter: invert(72%) sepia(0%);
+    -webkit-filter: invert(72%) sepia(0%));
 }
 
 thead th {

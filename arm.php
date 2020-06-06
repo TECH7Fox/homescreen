@@ -3,7 +3,7 @@
         <form action="unarm.php" method="POST">
             <div class="jumbotron" style="height: 85vh;">
                 <div class="form-row" style="height: 23%; margin-bottom: 2%;">
-                    <input id="keycode-input" name="keycode" style="height: 100%; font-size: 3em; color: white;" type="text" class="w-100 form-control bg-secondary" readonly>
+                    <input id="keycode-input" name="keycode" style="height: 100%; font-size: 4em; text-align: center; color: white;" type="text" class="w-100 form-control bg-secondary" readonly>
                 </div>
                 <div class="form-row" style="height: 23%; margin-bottom: 2%;">
                     <button type="button" class="col btn btn-lg btn-danger" style="margin-right: 2%; font-size: 3em;" onclick="ClickedKey('1')">1</button>
