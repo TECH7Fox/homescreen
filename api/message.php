@@ -7,19 +7,21 @@ $sth = $db->prepare($sql);
 $sth->execute();
 $row = $sth->fetch();
 
+if (empty($row["date"])) {
+    shell_exec("say 'welcome home'");
+    $row["title"] = "Welcome home";
+    $row["message"] = "Today is: " . date("l");
+} else {
+    shell_exec("say '" . $row["title"] . "'");
+    shell_exec("say '" . $row["message"] . "'");
+}
+
 ?>
 
-<h4 class="card-header">Main</h4>
-<div style='padding: 25px; height: 85%;background: url("<?php echo $row["background"]; ?>"); background-position: 90% 100%; background-repeat: no-repeat; background-size: 50%;'>
+<div style='height: 100%; background: url("<?php echo $row["background"]; ?>"); background-position: 90% 100%; background-repeat: no-repeat; background-size: 50%;'>
     <h1 class="display-4"><?php echo $row["title"]; ?></h1>
+    <hr class="my-4 bg-white">
     <div id="main-text">
         <p class="lead"><?php echo $row["message"]; ?></p>
-        <hr class="my-4">
-        <p><?php echo $row["details"]; ?></p>
     </div>
-</div>
-<div class="card-footer" style="height: 25%;">
-    <a role="button" href="alarm.php" style="height: 100%; text-align: center;" class="btn btn-block btn-lg btn-danger">
-        <i style="font-size: 3em; transform: translateY(-50%); margin-top: 8%;" class="fas fa-lock"></i>
-    </a>
 </div>

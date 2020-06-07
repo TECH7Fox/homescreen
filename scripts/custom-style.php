@@ -36,6 +36,12 @@ video {
     background-repeat: no-repeat;
     background-size: cover;
 }
+main {
+    height: 86vh;
+    overflow: hidden;
+    margin-bottom: 2vh;
+}
+
 .filter-option-inner-inner {
     font-size: 1.171875rem !important;
     padding: 0.10rem 1rem !important;
@@ -50,7 +56,7 @@ table {
 
 .scrollable-table {
     overflow-y: scroll;
-    height: 20%;
+    height: 100%;
 }
 
 .weather {
@@ -72,16 +78,17 @@ thead th {
     height: 50px;
 }
 .card {
+    height: 100%;
     padding: 0 !important;
     margin-left: 2vh;
     margin-right: 2vh;
-    margin-bottom: 2vh;
 }
 .col {
     padding: 0 !important;
 }
 .row-50 {
-    height: 44vh;
+    height: 42vh;
+    margin-bottom: 2vh;
 }
 .camera {
     border: none; 
@@ -93,7 +100,6 @@ thead th {
 .mlr-1 {
     margin-right: 1vh; 
     margin-left: 1vh;
-    margin-bottom: 2vh;
 }
 #message {
     margin-left: 0;

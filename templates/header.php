@@ -24,7 +24,7 @@
                 <h3><a href="index.php" class="navbar-brand"><i class="fas fa-home"></i> HomeScreen <small class="text-muted">Version 3</small></a></h3>
                 <div id="weather" class="navbar-text mt-2">
                 </div>
-                <!-- <div id="load_error" class="alert alert-danger" role="alert"><i class="fas fa-exclamation-triangle"></i><strong> Error! </strong>failed to load the page within 5 seconds</div> -->
+                <div id="load_error" class="alert alert-danger" role="alert"><i class="fas fa-exclamation-triangle"></i><strong> Error! </strong>failed to load the page within 5 seconds</div>
                 <div>
                     <a role="button" href="settings.php" class="btn btn-outline-primary btn-lg ml-3"><i class="fas fa-cogs"></i></a>
                     <a role="button" href="cams.php" class="btn btn-outline-primary btn-lg ml-3"><i class="fas fa-camera"></i></a>

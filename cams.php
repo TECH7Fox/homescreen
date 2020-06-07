@@ -12,7 +12,7 @@
                     $row = $sth->fetch();
                     if ($i == 3) { echo '</div><div class="row row-50">';} ?>
 
-                        <div class="col card mlr-1" style="">
+                        <div class="col card mlr-1">
                             <h5 class="card-header"><?php echo empty($row["name"])?"None":$row["name"]; ?></h5>
                             <<?php echo empty($row["name"])?"img":"iframe"; ?> class="card-img-bottom camera" src="<?php echo empty($row["url"])?$kartUrl:$row["url"]; ?>"><?php echo empty($row["name"])?"":"</iframe>"; ?>
                         </div>
