@@ -1,6 +1,6 @@
 <?php include "templates/header.php"; ?>
     <main>
-        <div class="row" style="margin: 0; height: 100%;">
+        <div class="row h-100 m-0">
             <div class="col-3 card">
                 <h4 class="card-header">Devices</h4>
                 <div class="scrollable-table">
@@ -17,7 +17,7 @@
                 </div>
             </div>
 
-            <div class="col card" style="margin: 0;">
+            <div class="col card m-0">
                 <h4 class="card-header">Main</h4>
                 <div id="message" class="card-body" style="height: 85%;"></div>
                 <div class="card-footer" style="height: 25%;">

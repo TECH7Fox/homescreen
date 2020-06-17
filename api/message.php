@@ -10,7 +10,7 @@ $row = $sth->fetch();
 if (empty($row["date"])) {
     shell_exec("say 'welcome home'");
     $row["title"] = "Welcome home";
-    $row["message"] = "Today is: " . date("l");
+    $row["message"] = date("l j F Y");
 } else {
     shell_exec("say '" . $row["title"] . "'");
     shell_exec("say '" . $row["message"] . "'");
@@ -19,7 +19,7 @@ if (empty($row["date"])) {
 ?>
 
 <div style='height: 100%; background: url("<?php echo $row["background"]; ?>"); background-position: 90% 100%; background-repeat: no-repeat; background-size: 50%;'>
-    <h1 class="display-4"><?php echo $row["title"]; ?></h1>
+    <h2 class="display-4"><?php echo $row["title"]; ?></h2>
     <hr class="my-4 bg-white">
     <div id="main-text">
         <p class="lead"><?php echo $row["message"]; ?></p>

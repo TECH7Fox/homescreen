@@ -22,20 +22,42 @@
         <header>
             <nav style="height: 10vh;" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark justify-content-between overflow-hidden">
                 <h3><a href="index.php" class="navbar-brand"><i class="fas fa-home"></i> HomeScreen <small class="text-muted">Version 3</small></a></h3>
-                <div id="weather" class="navbar-text mt-2">
-                </div>
-                <div id="load_error" class="alert alert-danger" role="alert"><i class="fas fa-exclamation-triangle"></i><strong> Error! </strong>failed to load the page within 5 seconds</div>
+                <div id="weather" class="navbar-text mt-2"></div>
+                <div id="clock" class="navbar-text h4 m-0"></div>
                 <div>
-                    <a role="button" href="settings.php" class="btn btn-outline-primary btn-lg ml-3"><i class="fas fa-cogs"></i></a>
-                    <a role="button" href="cams.php" class="btn btn-outline-primary btn-lg ml-3"><i class="fas fa-camera"></i></a>
-                    <a role="button" href="index.php" class="btn btn-outline-primary btn-lg ml-3"><i class="fas fa-home"></i></a>
+                    <a role="button" href="switches.php" class="btn btn-outline-primary btn-lg ml-2"><i class="fas fa-toggle-on"></i></a>
+                    <a role="button" href="settings.php" class="btn btn-outline-primary btn-lg ml-2"><i class="fas fa-cogs"></i></a>
+                    <a role="button" href="cams.php" class="btn btn-outline-primary btn-lg ml-2"><i class="fas fa-camera"></i></a>
+                    <a role="button" href="index.php" class="btn btn-outline-primary btn-lg ml-2"><i class="fas fa-home"></i></a>
                 </div>
             </nav>
         </header>
+        <script>
+
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('clock').innerHTML =
+            h + ":" + m + ":" + s;
+            var t = setTimeout(startTime, 500);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i};
+            return i;
+        }
+
+        startTime();
+
+        </script>
     <?php } ?>
     <script>
 
-    $("#load_error").hide();
+    loaded = false;
 
     $(window).on('load', function() {
         loaded = true;
@@ -48,7 +70,6 @@
     setInterval(function() {
         if (loaded == false) {
             window.stop();
-            $("#load_error").fadeIn();
         }
     }, 5 * 1000);
     </script>

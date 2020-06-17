@@ -9,6 +9,15 @@ CREATE TABLE settings (
   PRIMARY KEY (name)
 ); 
 
+DROP TABLE IF EXISTS switches;
+CREATE TABLE switches (
+  location VARCHAR(30),
+  type VARCHAR(30),
+  value VARCHAR(10),
+  on_code SMALLINT,
+  off_code SMALLINT
+);
+
 DROP TABLE IF EXISTS loading_screens;
 CREATE TABLE loading_screens (
   name VARCHAR(30),
@@ -39,7 +48,6 @@ CREATE TABLE messages (
   id INT NOT NULL AUTO_INCREMENT,
   title VARCHAR(50),
   message VARCHAR(100),
-  details VARCHAR(50),
   date DATE,
   background VARCHAR(100),
   PRIMARY KEY (id)
@@ -48,12 +56,19 @@ CREATE TABLE messages (
 INSERT INTO settings (name, value) VALUES ("alarm", "off");
 INSERT INTO settings (name, value) VALUES ("keycode", "2c17079b4da72e80c1875f7d2feefe79322a71544c5de1c838ee0230f3598312");
 INSERT INTO settings (name, value) VALUES ("vacation_mode", "off");
-INSERT INTO settings (name, value) VALUES ("outdoor_lights", "off");
 INSERT INTO settings (name, value) VALUES ("loading_screen", "fox");
 INSERT INTO settings (name, value) VALUES ("cam_1", "Outdoor Dome Camera");
 INSERT INTO settings (name, value) VALUES ("cam_2", "Outdoor Dome Camera");
-INSERT INTO settings (name, value) VALUES ("cam_3", "Outdoor Dome Camera");
+INSERT INTO settings (name, value) VALUES ("cam_3", "");
 INSERT INTO settings (name, value) VALUES ("cam_4", "");
+
+INSERT INTO switches (location, type, value, on_code, off_code) VALUES ("garden",  "light", "manual", 1234, 1237);
+INSERT INTO switches (location, type, value, on_code, off_code) VALUES ("outside", "light", "manual", 1234, 1237);
+INSERT INTO switches (location, type, value, on_code, off_code) VALUES ("jordy",   "light", "manual", 1234, 1237);
+INSERT INTO switches (location, type, value, on_code, off_code) VALUES ("couch",   "light", "manual", 1234, 1237);
+INSERT INTO switches (location, type, value, on_code, off_code) VALUES ("kitchen", "light", "manual", 1234, 1237);
+INSERT INTO switches (location, type, value, on_code, off_code) VALUES ("piano",   "light", "manual", 1234, 1237);
+INSERT INTO switches (location, type, value, on_code, off_code) VALUES ("tv",      "light", "manual", 1234, 1237);
 
 INSERT INTO loading_screens (name, url) VALUES ("fox", "assets/fox.gif");
 INSERT INTO loading_screens (name, url) VALUES ("sphere", "assets/sphere.gif");
@@ -66,7 +81,7 @@ INSERT INTO servers (type, name, ip, url) VALUES ("cam", "Outdoor WL Camera 1", 
 INSERT INTO servers (type, name, ip, url) VALUES ("cctv", "Camera Recorder", "192.168.178.10", "192.168.178.10:8080");
 INSERT INTO servers (type, name, ip, url) VALUES ("alarm", "Alarm System", "192.168.178.11", "192.168.178.11");
 
-INSERT INTO messages (title, message, details, date, background) VALUES ("Gelukkig nieuw jaar!", "De beste wensen!", "2021-2022", "2020-05-30", "assets/firework.gif");
-INSERT INTO messages (title, message, details, date, background) VALUES ("Fijne kerst!", "De beste wensen!", "2021-2022", "2020-05-31", "assets/christmas.gif");
+INSERT INTO messages (title, message, date, background) VALUES ("Gelukkig nieuw jaar!", "De beste wensen!", "2020-05-30", "assets/firework.gif");
+INSERT INTO messages (title, message, date, background) VALUES ("Fijne kerst!", "De beste wensen!", "2020-05-31", "assets/christmas.gif");
 
 INSERT INTO notifications (notification, timestamp, level) VALUES ("successfully created database!", now(), 1);
