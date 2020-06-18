@@ -13,6 +13,7 @@ DROP TABLE IF EXISTS switches;
 CREATE TABLE switches (
   location VARCHAR(30),
   type VARCHAR(30),
+  status BIT,
   value VARCHAR(10),
   on_code SMALLINT,
   off_code SMALLINT
@@ -62,13 +63,13 @@ INSERT INTO settings (name, value) VALUES ("cam_2", "Outdoor Dome Camera");
 INSERT INTO settings (name, value) VALUES ("cam_3", "");
 INSERT INTO settings (name, value) VALUES ("cam_4", "");
 
-INSERT INTO switches (location, type, value, on_code, off_code) VALUES ("garden",  "light", "manual", 1234, 1237);
-INSERT INTO switches (location, type, value, on_code, off_code) VALUES ("outside", "light", "manual", 1234, 1237);
-INSERT INTO switches (location, type, value, on_code, off_code) VALUES ("jordy",   "light", "manual", 1234, 1237);
-INSERT INTO switches (location, type, value, on_code, off_code) VALUES ("couch",   "light", "manual", 1234, 1237);
-INSERT INTO switches (location, type, value, on_code, off_code) VALUES ("kitchen", "light", "manual", 1234, 1237);
-INSERT INTO switches (location, type, value, on_code, off_code) VALUES ("piano",   "light", "manual", 1234, 1237);
-INSERT INTO switches (location, type, value, on_code, off_code) VALUES ("tv",      "light", "manual", 1234, 1237);
+INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("garden",  "light", 0, "manual", 1234, 1237);
+INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("outside", "light", 0, "manual", 1234, 1237);
+INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("jordy",   "light", 0, "manual", 1234, 1237);
+INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("couch",   "light", 0, "manual", 1234, 1237);
+INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("kitchen", "light", 0, "manual", 1234, 1237);
+INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("piano",   "light", 0, "manual", 1234, 1237);
+INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("tv",      "light", 0, "manual", 1234, 1237);
 
 INSERT INTO loading_screens (name, url) VALUES ("fox", "assets/fox.gif");
 INSERT INTO loading_screens (name, url) VALUES ("sphere", "assets/sphere.gif");
