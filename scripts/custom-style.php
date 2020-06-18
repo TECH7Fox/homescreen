@@ -75,6 +75,7 @@ thead th {
 
 ::-webkit-scrollbar {
     width: 7.5px;
+    height: 7.5px;
 }
  
 ::-webkit-scrollbar-track {
