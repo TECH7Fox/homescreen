@@ -1,6 +1,6 @@
 <?php include "templates/header.php"; ?>
     <main class="container mt-auto">
-        <form method="GET" action="saveSettings.php" class="card">
+        <form method="POST" action="saveSettings.php" class="card">
             <div class="card-header"><h3>Settings</h3>
                 <ul class="nav nav-tabs card-header-tabs" id="settings-list" role="tablist">
                     <li class="nav-item">
