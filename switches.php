@@ -17,7 +17,10 @@
                     while ($row = $sth->fetch()) { ?>
                         <div class="form-group mr-5 ml-5">
                             <h6><?php echo (($row["type"] == "light")?'<i class="fas fa-lightbulb"></i> ':"") . $row["location"] . " " . $row["type"]; ?></h6>
-                            <input type="checkbox" id="<?php echo $row["location"] . "_" . $row["type"]; ?>" <?php echo $row["status"] == 1?"checked ":""; echo $row["value"] !== "manual"?"disabled checked ":'data-onstyle="success"'; ?> data-toggle="toggle" data-on="<?php echo $row["value"] !== "manual"?"Automatic":""; ?>" data-offstyle="danger" data-height="80" data-width="110"/>
+                            <input type="checkbox" id="<?php echo $row["location"] . "_" . $row["type"]; ?>" 
+                            <?php echo $row["status"] == 1?"checked ":""; echo $row["value"] !== "manual"?"disabled checked ":'data-onstyle="success"'; ?> 
+                            data-toggle="toggle" data-on="<?php echo $row["value"] !== "manual"?"Automatic":""; ?>" 
+                            data-offstyle="danger" data-height="80" data-width="110"/>
                         </div>
                     <?php } ?>
                 </div>

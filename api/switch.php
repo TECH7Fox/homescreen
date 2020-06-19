@@ -14,5 +14,5 @@ $sth->execute();
 $row = $sth->fetch();
 
 for ($i = 1; $i <= 3; $i++) {
-    exec("sudo ./home/pi/433Utils/RPi_utils/codesend " . ($_GET["status"] == "true"?$row["on_code"]:$row["off_code"]));
+    shell_exec("sudo ./home/pi/433Utils/RPi_utils/codesend " . ($_GET["status"] == "true"?$row["on_code"]:$row["off_code"]));
 }
