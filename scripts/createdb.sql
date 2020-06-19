@@ -65,7 +65,8 @@ INSERT INTO settings (name, value) VALUES ("cam_4", "");
 
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("garden",  "light", 0, "manual", 1234, 1237);
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("outside", "light", 0, "manual", 1234, 1237);
-INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("jordy",   "light", 0, "manual", 1234, 1237);
+INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("desk",    "light", 0, "manual", 6273, 6276);
+INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("closet",  "light", 0, "manual", 6511, 6514);
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("couch",   "light", 0, "manual", 1234, 1237);
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("kitchen", "light", 0, "manual", 1234, 1237);
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("piano",   "light", 0, "manual", 1234, 1237);

@@ -10,7 +10,7 @@
                 <div class="h-100 d-flex flex-wrap overflow-auto">
                     <?php
 
-                    $sql = "SELECT * FROM switches";
+                    $sql = "SELECT location, type, status, value FROM switches";
                     $sth = $db->prepare($sql);
                     $sth->execute();
 
@@ -33,8 +33,7 @@ $('input[type=checkbox]').change(function() {
     $.ajax({                                
         url: 'api/switch.php?switch=' + this.id + '&status=' + $(this).prop("checked")
     });
-    alert('api/switch.php?switch=' + this.id + '&status=' + $(this).prop("checked"));
-});
+}); 
 
 </script>
 </html>
