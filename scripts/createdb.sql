@@ -57,6 +57,7 @@ CREATE TABLE notifications (
 DROP TABLE IF EXISTS messages;
 CREATE TABLE messages (
   id INT NOT NULL AUTO_INCREMENT,
+  permanent BIT,
   title VARCHAR(50),
   message VARCHAR(100),
   date DATE,
@@ -94,7 +95,7 @@ INSERT INTO servers (type, name, ip, url) VALUES ("cam", "Outdoor WL Camera 1", 
 INSERT INTO servers (type, name, ip, url) VALUES ("cctv", "Camera Recorder", "192.168.178.10", "192.168.178.10:8080");
 INSERT INTO servers (type, name, ip, url) VALUES ("alarm", "Alarm System", "192.168.178.11", "192.168.178.11");
 
-INSERT INTO messages (title, message, date, background) VALUES ("Gelukkig nieuw jaar!", "De beste wensen!", "2020-05-30", "assets/firework.gif");
-INSERT INTO messages (title, message, date, background) VALUES ("Fijne kerst!", "De beste wensen!", "2020-05-31", "assets/christmas.gif");
+INSERT INTO messages (permanent, title, message, date, background) VALUES (1, "Gelukkig nieuw jaar!", "De beste wensen!", "2020-05-30", "firework.gif");
+INSERT INTO messages (permanent, title, message, date, background) VALUES (1, "Fijne kerst!", "De beste wensen!", "2020-05-31", "christmas.gif");
 
 INSERT INTO notifications (notification, timestamp, level) VALUES ("successfully created database!", now(), 1);

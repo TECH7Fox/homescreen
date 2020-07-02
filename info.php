@@ -52,13 +52,13 @@
             </div>
 
             <div class="col card">
-                <h4 class="card-header"><i class="fas fa-comment-dots"></i> Messages</h4>
+                <h4 class="card-header"><i class="fas fa-clipboard-list"></i> Notifications</h4>
                 <div class="scrollable-table">
                     <table class="table table-responsive-sm text-center m-0">
                         <thead>
                             <tr class="table-dark">
                                 <th scope="col">Type</th>
-                                <th scope="col">Messages</th>
+                                <th scope="col">Notification</th>
                                 <th scope="col">Time</th>
                             </tr>
                         </thead>
