@@ -32,6 +32,12 @@ function GetData() {
         $('#weather').html(table);
     });
 
+    //$.ajax({                                
+    //    url: 'api/getScripts.php'
+    //}).done(function( table ) {
+    //    $('#scripts').html(table);
+    //});
+
 }
 
 GetData();

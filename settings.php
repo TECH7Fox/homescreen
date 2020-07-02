@@ -1,7 +1,7 @@
 <?php include "templates/header.php"; ?>
     <main class="container">
         <form method="POST" action="saveSettings.php" class="card">
-            <div class="card-header"><h3>Settings</h3>
+            <div class="card-header"><h3><i class="fas fa-cogs"></i> Settings</h3>
                 <ul class="nav nav-tabs card-header-tabs" id="settings-list" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" href="#lights" role="tab" aria-controls="description" aria-selected="true"><i class="fas fa-toggle-on"></i> Switches</a>

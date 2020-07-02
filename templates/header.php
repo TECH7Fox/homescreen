@@ -21,14 +21,15 @@
         <script src="js/getData.js"></script>
         <header>
             <nav style="height: 10vh;" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark justify-content-between overflow-hidden">
-                <h3><a href="index.php" class="navbar-brand"><i class="fas fa-home"></i> HomeScreen <small class="text-muted">Version 3</small></a></h3>
+                <a href="index.php" class="navbar-text h3 text-decoration-none"><i class="fas fa-home"></i> HomeScreen <small class="text-muted">Version 3</small></a>
                 <div id="weather" class="navbar-text mt-2"></div>
                 <div id="clock" class="navbar-text h4 m-0"></div>
                 <div>
-                    <a role="button" href="switches.php" class="btn btn-outline-primary btn-lg ml-2"><i class="fas fa-toggle-on"></i></a>
-                    <a role="button" href="settings.php" class="btn btn-outline-primary btn-lg ml-2"><i class="fas fa-cogs"></i></a>
-                    <a role="button" href="cams.php" class="btn btn-outline-primary btn-lg ml-2"><i class="fas fa-camera"></i></a>
-                    <a role="button" href="index.php" class="btn btn-outline-primary btn-lg ml-2"><i class="fas fa-home"></i></a>
+                    <a role="button" href="switches.php" class="btn btn-primary btn-lg ml-2"><i class="fas fa-toggle-on"></i></a>
+                    <a role="button" href="info.php"     class="btn btn-primary btn-lg ml-2"><i class="far fa-chart-bar"></i></a>
+                    <a role="button" href="settings.php" class="btn btn-primary btn-lg ml-2"><i class="fas fa-cogs"></i></a>
+                    <a role="button" href="cams.php"     class="btn btn-primary btn-lg ml-2"><i class="fas fa-camera"></i></a>
+                    <a role="button" href="index.php"    class="btn btn-primary btn-lg ml-2"><i class="fas fa-home"></i></a>
                 </div>
             </nav>
         </header>

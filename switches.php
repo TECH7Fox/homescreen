@@ -4,7 +4,7 @@
     <main class="container">
         <div class="card">
             <div class="card-header">
-                <h3>Switches</h3>
+                <h3><i class="fas fa-toggle-on"></i> Switches</h3>
             </div>
             <div class="card-body h-100">
                 <div class="h-100 d-flex flex-wrap overflow-auto">

@@ -2,7 +2,7 @@
 
 include "../connectdb.php";
 
-$sql = "SELECT * FROM servers";
+$sql = "SELECT * FROM servers ORDER BY type";
 $sth = $db->prepare($sql); 
 $sth->execute();
 

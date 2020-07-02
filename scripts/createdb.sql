@@ -26,6 +26,16 @@ CREATE TABLE loading_screens (
   PRIMARY KEY (name)
 );
 
+DROP TABLE IF EXISTS scripts;
+CREATE TABLE scripts (
+  name VARCHAR(30),
+  type VARCHAR(30),
+  path VARCHAR(100),
+  status BIT,
+  pid SMALLINT,
+  PRIMARY KEY (name)
+);
+
 DROP TABLE IF EXISTS servers; 
 CREATE TABLE servers ( 
   type VARCHAR(10),
@@ -56,7 +66,6 @@ CREATE TABLE messages (
 
 INSERT INTO settings (name, value) VALUES ("alarm", "off");
 INSERT INTO settings (name, value) VALUES ("keycode", "2c17079b4da72e80c1875f7d2feefe79322a71544c5de1c838ee0230f3598312");
-INSERT INTO settings (name, value) VALUES ("vacation_mode", "off");
 INSERT INTO settings (name, value) VALUES ("loading_screen", "fox");
 INSERT INTO settings (name, value) VALUES ("cam_1", "Outdoor Dome Camera");
 INSERT INTO settings (name, value) VALUES ("cam_2", "Outdoor Dome Camera");
@@ -75,6 +84,8 @@ INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES (
 INSERT INTO loading_screens (name, url) VALUES ("fox", "assets/fox.gif");
 INSERT INTO loading_screens (name, url) VALUES ("sphere", "assets/sphere.gif");
 INSERT INTO loading_screens (name, url) VALUES ("loop", "assets/loop.gif");
+
+INSERT INTO scripts (name, type, path, status, pid) VALUES ("lights", "python", "/var/www/html/scripts.py", 0, 0000);
 
 INSERT INTO servers (type, name, ip, url) VALUES ("modem", "Connect Box Ziggo", "192.168.178.1", "192.168.178.11");
 INSERT INTO servers (type, name, ip, url) VALUES ("cam", "Outdoor Dome Camera", "192.168.178.9", "http://192.168.178.10:8080/54fa5cc90312fbb7be0d206233fbe544/embed/r2knn1w6yK/olkrGJcEwA/fullscreen%7Cjquery");
