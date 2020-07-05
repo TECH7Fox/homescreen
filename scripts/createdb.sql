@@ -19,13 +19,6 @@ CREATE TABLE switches (
   off_code SMALLINT
 );
 
-DROP TABLE IF EXISTS loading_screens;
-CREATE TABLE loading_screens (
-  name VARCHAR(30),
-  url VARCHAR(200),
-  PRIMARY KEY (name)
-);
-
 DROP TABLE IF EXISTS scripts;
 CREATE TABLE scripts (
   name VARCHAR(30),
@@ -81,10 +74,6 @@ INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES (
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("kitchen", "light", 0, "manual", 1234, 1237);
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("piano",   "light", 0, "manual", 1234, 1237);
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("tv",      "light", 0, "manual", 1234, 1237);
-
-INSERT INTO loading_screens (name, url) VALUES ("fox", "assets/fox.gif");
-INSERT INTO loading_screens (name, url) VALUES ("sphere", "assets/sphere.gif");
-INSERT INTO loading_screens (name, url) VALUES ("loop", "assets/loop.gif");
 
 INSERT INTO scripts (name, type, path, status, pid) VALUES ("lights", "python", "/var/www/html/scripts.py", 0, 0000);
 

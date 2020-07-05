@@ -25,11 +25,11 @@ video {
     <?php 
     
     include "connectdb.php"; 
-    $sql = "SELECT l.url FROM loading_screens l, settings s WHERE s.value = l.name";
+    $sql = "SELECT value FROM settings WHERE name = 'loading_screen'";
     $sth = $db->prepare($sql); 
     $sth->execute(); 
     $row = $sth->fetch();
-    echo $row["url"]; 
+    echo "assets/loadingScreens/" . $row["value"] . ".gif"; 
     
     ?>) darkgray;
     background-position: center;
