@@ -65,11 +65,15 @@
                                 <h5>Animation</h5>
                                 <select class="selectpicker" data-style="btn-primary" name="loading_screen">
                                     <?php
-                                    $sql = "SELECT s.value, l.name FROM settings s, loading_screens l WHERE s.name = 'loading_screen'";
+                                    $sql = "SELECT value FROM settings WHERE name = 'loading_screen'";
                                     $sth = $db->prepare($sql); 
                                     $sth->execute();
-                                    while($row = $sth->fetch()) {
-                                        echo '<option' . (($row["name"] == $row["value"])?' selected':"") . ' value="' . $row["name"] . '">' . $row["name"] . '</option>';
+                                    $row = $sth->fetch();
+ 
+                                    foreach(array_diff(scandir('assets/loadingScreens'), array('.', '..')) as $val)  {
+                                        $arr = explode(".", $val, 2);
+                                        echo '<option' . (($arr[0] == $row["value"])?' selected':"") . ' value="' . $arr[0] . '">' . $arr[0] . '</option>';
+                                        echo $arr[0] . $row["value"];
                                     }
                                     ?>
                                 </select>

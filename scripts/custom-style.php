@@ -25,11 +25,11 @@ video {
     <?php 
     
     include "connectdb.php"; 
-    $sql = "SELECT l.url FROM loading_screens l, settings s WHERE s.value = l.name";
+    $sql = "SELECT value FROM settings WHERE name = 'loading_screen'";
     $sth = $db->prepare($sql); 
     $sth->execute(); 
     $row = $sth->fetch();
-    echo $row["url"]; 
+    echo "assets/loadingScreens/" . $row["value"] . ".gif"; 
     
     ?>) darkgray;
     background-position: center;
@@ -126,6 +126,18 @@ thead th {
 }
 header {
     margin-bottom: 2vh;
+}
+
+.checkbox-xl .custom-control-label::before, 
+.checkbox-xl .custom-control-label::after {
+  top: 1.2rem;
+  width: 1.85rem;
+  height: 1.85rem;
+}
+
+.checkbox-xl .custom-control-label {
+  padding-top: 23px;
+  padding-left: 10px;
 }
 
 </style>
