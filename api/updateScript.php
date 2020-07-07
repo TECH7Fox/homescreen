@@ -1,12 +1,12 @@
 <?php
 
-include "../connectdb.php";
+include "../scripts/connectdb.php";
 
-$sql = "UPDATE scripts SET status = " . ($_GET["status"] == "true"?1:0) . " WHERE name = '" . $_GET["switch"] . "'";
+$sql = "UPDATE autoScripts SET status = " . ($_GET["status"] == "true"?1:0) . " WHERE name = '" . $_GET["switch"] . "'";
 $sth = $db->prepare($sql);
 $sth->execute();
 
-$sql = "SELECT type, path, name FROM scripts WHERE name = " . "'" . $_GET["switch"] . "'";
+$sql = "SELECT type, path, name FROM autoScripts WHERE name = " . "'" . $_GET["switch"] . "'";
 $sth = $db->prepare($sql);
 $sth->execute();
 $row = $sth->fetch();

@@ -1,6 +1,6 @@
 <?php
 
-include "../connectdb.php";
+include "../scripts/connectdb.php";
 
 $sql = "SELECT value FROM settings WHERE name = 'alarm'";
 $sth = $db->prepare($sql); 

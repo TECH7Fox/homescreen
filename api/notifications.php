@@ -1,6 +1,6 @@
 <?php
 
-include "../connectdb.php";
+include "../scripts/connectdb.php";
 
 $sql = "SELECT * FROM notifications ORDER by timestamp";
 $sth = $db->prepare($sql); 

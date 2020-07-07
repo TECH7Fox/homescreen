@@ -1,6 +1,6 @@
 <?php
 
-include "connectdb.php";
+include "scripts/connectdb.php";
 
     $sql = "UPDATE settings SET value = " . "'" . $_POST["loading_screen"] . "' WHERE name = 'loading_screen'";
     $sth = $db->prepare($sql); 

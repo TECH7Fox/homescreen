@@ -19,8 +19,8 @@ CREATE TABLE switches (
   off_code SMALLINT
 );
 
-DROP TABLE IF EXISTS scripts;
-CREATE TABLE scripts (
+DROP TABLE IF EXISTS autoScripts;
+CREATE TABLE autoScripts (
   name VARCHAR(30),
   type VARCHAR(30),
   path VARCHAR(100),
@@ -50,8 +50,8 @@ CREATE TABLE notifications (
 DROP TABLE IF EXISTS messages;
 CREATE TABLE messages (
   id INT NOT NULL AUTO_INCREMENT,
-  permanent BIT,
-  title VARCHAR(50),
+  permanent TINYINT,
+  title VARCHAR(50) NOT NULL,
   message VARCHAR(100),
   date DATE,
   background VARCHAR(100),
@@ -75,7 +75,7 @@ INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES (
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("piano",   "light", 0, "manual", 1234, 1237);
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("tv",      "light", 0, "manual", 1234, 1237);
 
-INSERT INTO scripts (name, type, path, status, pid) VALUES ("lights", "python", "/var/www/html/scripts.py", 0, 0000);
+INSERT INTO autoScripts (name, type, path, status) VALUES ("lights", "python", "/var/www/html/scripts.py", 0);
 
 INSERT INTO servers (type, name, ip, url) VALUES ("modem", "Connect Box Ziggo", "192.168.178.1", "192.168.178.11");
 INSERT INTO servers (type, name, ip, url) VALUES ("cam", "Outdoor Dome Camera", "192.168.178.9", "http://192.168.178.10:8080/54fa5cc90312fbb7be0d206233fbe544/embed/r2knn1w6yK/olkrGJcEwA/fullscreen%7Cjquery");

@@ -1,6 +1,6 @@
 <?php
 
-include "../connectdb.php";
+include "../scripts/connectdb.php";
 
 $switch = explode("_", $_GET["switch"]);
 

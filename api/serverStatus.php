@@ -1,6 +1,6 @@
 <?php
 
-include "../connectdb.php";
+include "../scripts/connectdb.php";
 
 $sql = "SELECT * FROM servers ORDER BY type";
 $sth = $db->prepare($sql); 

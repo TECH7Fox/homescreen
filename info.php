@@ -32,9 +32,9 @@
                         <tbody id="scripts">
                             <?php
     
-                            include "../connectdb.php";
+                            include "scripts/connectdb.php";
     
-                            $sql = "SELECT name, status FROM scripts";
+                            $sql = "SELECT name, status FROM autoScripts";
                             $sth = $db->prepare($sql); 
                             $sth->execute();
     

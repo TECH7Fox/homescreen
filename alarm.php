@@ -1,6 +1,6 @@
 <?php 
 
-include "connectdb.php";
+include "scripts/connectdb.php";
 
 $sql = "UPDATE settings SET value='on' WHERE name='alarm'";
 $sth = $db->prepare($sql); 
