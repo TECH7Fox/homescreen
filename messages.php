@@ -7,7 +7,7 @@
                 <h3 class="card-header"><i class="fas fa-comment-dots"></i> Messages<button type="button" data-toggle="modal" data-target="#createMessage" class="btn btn-primary btn-lg float-right"><i class="fas fa-plus"></i> Add new message</button></h3>
                 <div class="modal fade" id="createMessage" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <form class="modal-content" method="POST" action="scripts/saveMessage.php">
+                        <form class="modal-content" method="POST" action="scripts/createMessage.php">
                             <div class="modal-header">
                                 <h5 class="modal-title">Create new message</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">

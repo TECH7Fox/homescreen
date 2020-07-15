@@ -23,7 +23,7 @@ function GetData() {
     $.ajax({                                
         url: 'api/message.php'
     }).done(function( table ) {
-        $('#message').html(table);
+        $('#messageContainer').html(table);
     });
 
     $.ajax({                                
@@ -31,13 +31,6 @@ function GetData() {
     }).done(function( table ) {
         $('#weather').html(table);
     });
-
-    //$.ajax({                                
-    //    url: 'api/getScripts.php'
-    //}).done(function( table ) {
-    //    $('#scripts').html(table);
-    //});
-
 }
 
 GetData();

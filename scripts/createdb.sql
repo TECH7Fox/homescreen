@@ -61,8 +61,8 @@ CREATE TABLE messages (
 INSERT INTO settings (name, value) VALUES ("alarm", "off");
 INSERT INTO settings (name, value) VALUES ("keycode", "2c17079b4da72e80c1875f7d2feefe79322a71544c5de1c838ee0230f3598312");
 INSERT INTO settings (name, value) VALUES ("loading_screen", "fox");
-INSERT INTO settings (name, value) VALUES ("cam_1", "Outdoor Dome Camera");
-INSERT INTO settings (name, value) VALUES ("cam_2", "Outdoor Dome Camera");
+INSERT INTO settings (name, value) VALUES ("cam_1", "");
+INSERT INTO settings (name, value) VALUES ("cam_2", "");
 INSERT INTO settings (name, value) VALUES ("cam_3", "");
 INSERT INTO settings (name, value) VALUES ("cam_4", "");
 
@@ -75,8 +75,6 @@ INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES (
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("piano",   "light", 0, "manual", 1234, 1237);
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("tv",      "light", 0, "manual", 1234, 1237);
 
-INSERT INTO autoScripts (name, type, path, status) VALUES ("lights", "python", "/var/www/html/scripts.py", 0);
-
 INSERT INTO servers (type, name, ip, url) VALUES ("modem", "Connect Box Ziggo", "192.168.178.1", "192.168.178.11");
 INSERT INTO servers (type, name, ip, url) VALUES ("cam", "Outdoor Dome Camera", "192.168.178.9", "http://192.168.178.10:8080/54fa5cc90312fbb7be0d206233fbe544/embed/r2knn1w6yK/olkrGJcEwA/fullscreen%7Cjquery");
 INSERT INTO servers (type, name, ip, url) VALUES ("cam", "Outdoor WL Camera 2", "192.168.178.8", "none");
@@ -84,7 +82,9 @@ INSERT INTO servers (type, name, ip, url) VALUES ("cam", "Outdoor WL Camera 1", 
 INSERT INTO servers (type, name, ip, url) VALUES ("cctv", "Camera Recorder", "192.168.178.10", "192.168.178.10:8080");
 INSERT INTO servers (type, name, ip, url) VALUES ("alarm", "Alarm System", "192.168.178.11", "192.168.178.11");
 
-INSERT INTO messages (permanent, title, message, date, background) VALUES (1, "Gelukkig nieuw jaar!", "De beste wensen!", "2020-05-30", "firework.gif");
-INSERT INTO messages (permanent, title, message, date, background) VALUES (1, "Fijne kerst!", "De beste wensen!", "2020-05-31", "christmas.gif");
+INSERT INTO messages (permanent, title, message, date, background) VALUES (0, "Alarm systeem online", "Welkom bij het nieuwe alarm systeem, versie 3.", CURDATE(), "confetti.gif");
+INSERT INTO messages (permanent, title, message, date, background) VALUES (1, "Gelukkig nieuw jaar!", "De beste wensen!", "2020-01-01", "firework.gif");
+INSERT INTO messages (permanent, title, message, date, background) VALUES (1, "Fijne kerst!", "De beste wensen!", "2020-11-25", "christmas.gif");
+INSERT INTO messages (permanent, title, message, date, background) VALUES (1, "Fijne verjaardag Jordy!", "", "2003-02-08", "christmas.gif");
 
 INSERT INTO notifications (notification, timestamp, level) VALUES ("successfully created database!", now(), 1);

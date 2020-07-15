@@ -17,10 +17,10 @@ $sql = "INSERT INTO messages (
 )";
 $sth = $db->prepare($sql); 
 $params = array(
-    ":permanent"  => (isset($_POST["permanent"])?$_POST["permanent"]:0),
+    ":permanent"  => (isset($_POST["permanent"])?1:0),
     ":title"      => $_POST["title"],
     ":message"    => $_POST["message"],
-    ":date"       => date("Y-m-d", strtotime($_POST["date"])),
+    ":date"       => date('Y-m-d', strtotime(str_replace('/', '-', $_POST["date"]))),
     ":background" => $_POST["background"]
 );
 
@@ -28,8 +28,6 @@ try {
     $sth->execute($params);
 } catch (Exception $e) {
     //send error
-    header("location: ../messages.php");
-    die();
 }
 
 header("location: ../messages.php");

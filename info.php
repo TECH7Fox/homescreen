@@ -3,6 +3,7 @@
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     <main>
         <div class="row h-100 m-0">
+
             <div class="col card mr-0">
                 <h4 class="card-header"><i class="fas fa-network-wired"></i> Devices</h4>
                 <div class="scrollable-table">
@@ -20,7 +21,7 @@
             </div>
 
             <div class="col card mr-0">
-                <h4 class="card-header"><i class="fas fa-scroll"></i> Scripts</h4>
+                <h4 class="card-header"><i class="fas fa-scroll"></i> Auto Scripts</h4>
                 <div class="scrollable-table">
                     <table class="table text-center m-0">
                         <thead>
@@ -34,17 +35,21 @@
     
                             include "scripts/connectdb.php";
     
-                            $sql = "SELECT name, status FROM autoScripts";
-                            $sth = $db->prepare($sql); 
-                            $sth->execute();
-    
-                            while ($row = $sth->fetch()) {
-                                echo '<tr class="table-' . (($row["status"] == 1)?"success":"danger") . '">'; 
-                                echo '<td>' . $row["name"] . '</td>';
-                                echo '<td><input type="checkbox" ' . (($row["status"] == 1)?"checked":"") . ' data-onstyle="success" data-offstyle="danger" data-style="border" id="' . $row["name"] . '" data-toggle="toggle"/>';
+                            foreach(array_diff(scandir('scripts/auto'), array('.', '..')) as $val)  {
+
+                                $output = shell_exec("ps -C $val -f");
+                                if (strpos($output, $val) === false) { 
+                                    $status = false;
+                                } else {
+                                    $status = true;
+                                }
+
+                                echo '<tr class="table-' . (($status)?"success":"danger") . '">'; 
+                                echo '<td>' . $val . '</td>';
+                                echo '<td><input type="checkbox" ' . (($status)?"checked":"") . ' data-onstyle="success" data-offstyle="danger" data-style="border" id="' . $val . '" data-toggle="toggle"/>';
                                 echo '</tr>';
                             }
-                        
+
                             ?>
                         </tbody>
                     </table>
@@ -66,6 +71,7 @@
                     </table>
                 </div>
             </div>
+
         </div>
     </main>
     <footer>
@@ -75,7 +81,7 @@
 
 $('input[type=checkbox]').change(function() {
     $.ajax({                                
-        url: 'api/updateScript.php?switch=' + this.id + '&status=' + $(this).prop("checked")
+        url: 'api/updateScript.php?script=' + this.id + '&status=' + $(this).prop("checked")
     });
     if ($(this).prop("checked")) {
         $(this).closest("tr").removeClass("table-danger").addClass("table-success");

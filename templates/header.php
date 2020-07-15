@@ -66,9 +66,6 @@
     $(window).on('load', function() {
         loaded = true;
         $(".se-pre-con").fadeOut("slow");
-        $("#main-text").hide();
-        $(".jumbotron").hide().delay(300).fadeIn(1500);
-        $("#main-text").delay(1000).fadeIn(1500);
     });
 
     setInterval(function() {
