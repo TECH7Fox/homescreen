@@ -5,7 +5,7 @@
         <div class="row h-100 m-0">
             <div class="col card mr-0">
                 <h3 class="card-header"><i class="fas fa-comment-dots"></i> Messages<button type="button" data-toggle="modal" data-target="#createMessage" class="btn btn-primary btn-lg float-right"><i class="fas fa-plus"></i> Add new message</button></h3>
-                <div class="modal fade" id="createMessage" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal fade" id="createMessage" tabindex="-1" role="dialog" aria-labelledby="createNewMessage" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-centered">
                         <form class="modal-content" method="POST" action="scripts/createMessage.php">
                             <div class="modal-header">
@@ -77,7 +77,7 @@
                         
                         <?php
 
-                        $sql = "SELECT * FROM messages";
+                        $sql = "SELECT * FROM messages WHERE permanent = 1 OR date >= CURDATE() ORDER BY permanent, date DESC";
                         $sth = $db->prepare($sql); 
                         $sth->execute();
 

@@ -8,7 +8,7 @@ $sth->execute();
 $row = $sth->fetch();
 
 if (empty($row["date"])) {
-    $sql = "SELECT * FROM messages where day(date) = " . date("d", strtotime('+2 hours')) . " AND month(date) = " . date("m", strtotime('+2 hours'));
+    $sql = "SELECT * FROM messages where permanent = 1 AND day(date) = " . date("d", strtotime('+2 hours')) . " AND month(date) = " . date("m", strtotime('+2 hours'));
     $sth = $db->prepare($sql); 
     $sth->execute();
     $row = $sth->fetch();

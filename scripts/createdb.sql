@@ -65,6 +65,9 @@ INSERT INTO settings (name, value) VALUES ("cam_1", "");
 INSERT INTO settings (name, value) VALUES ("cam_2", "");
 INSERT INTO settings (name, value) VALUES ("cam_3", "");
 INSERT INTO settings (name, value) VALUES ("cam_4", "");
+INSERT INTO settings (name, value) VALUES ("discord_arm", "on");
+INSERT INTO settings (name, value) VALUES ("discord_disarm", "on");
+INSERT INTO settings (name, value) VALUES ("discord_tripped", "on");
 
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("garden",  "light", 0, "manual", 1234, 1237);
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("outside", "light", 0, "manual", 1234, 1237);
@@ -85,6 +88,8 @@ INSERT INTO servers (type, name, ip, url) VALUES ("alarm", "Alarm System", "192.
 INSERT INTO messages (permanent, title, message, date, background) VALUES (0, "Alarm systeem online", "Welkom bij het nieuwe alarm systeem, versie 3.", CURDATE(), "confetti.gif");
 INSERT INTO messages (permanent, title, message, date, background) VALUES (1, "Gelukkig nieuw jaar!", "De beste wensen!", "2020-01-01", "firework.gif");
 INSERT INTO messages (permanent, title, message, date, background) VALUES (1, "Fijne kerst!", "De beste wensen!", "2020-11-25", "christmas.gif");
-INSERT INTO messages (permanent, title, message, date, background) VALUES (1, "Fijne verjaardag Jordy!", "", "2003-02-08", "christmas.gif");
+INSERT INTO messages (permanent, title, message, date, background) VALUES (1, "Fijne verjaardag Jordy!", "", "2003-02-08", "confetti.gif");
+INSERT INTO messages (permanent, title, message, date, background) VALUES (1, "Fijne verjaardag Ben!", "", "1961-02-13", "confetti.gif");
+INSERT INTO messages (permanent, title, message, date, background) VALUES (1, "Fijne verjaardag Birgit!", "", "1967-01-06", "confetti.gif");
 
 INSERT INTO notifications (notification, timestamp, level) VALUES ("successfully created database!", now(), 1);
