@@ -1,41 +1,62 @@
-<?php include "templates/header.php"; ?>
+<?php 
+
+include "scripts/connectdb.php";
+
+$sql = "UPDATE settings SET value='on' WHERE name='alarm'";
+$sth = $db->prepare($sql); 
+$sth->execute();
+
+$sql = "SELECT value FROM settings WHERE name = 'discord_arm'";
+$sth = $db->prepare($sql); 
+$sth->execute();
+$row = $sth->fetch();
+
+if ($row["value"] == "on") {
+    shell_exec('python /var/www/html/scripts/discord.py "Alarm activated!"');
+}
+
+include "templates/header.php";
+
+?>
     <main class="container">
-        <form action="unarm.php" method="POST">
-            <div class="jumbotron" style="height: 85vh;">
-                <div class="form-row" style="height: 23%; margin-bottom: 2%;">
-                    <input id="keycode-input" name="keycode" style="height: 100%; font-size: 4em; text-align: center; color: white;" type="text" class="w-100 form-control bg-secondary" readonly>
-                </div>
-                <div class="form-row" style="height: 23%; margin-bottom: 2%;">
-                    <button type="button" class="col btn btn-lg btn-danger" style="margin-right: 2%; font-size: 3em;" onclick="ClickedKey('1')">1</button>
-                    <button type="button" class="col btn btn-lg btn-danger" style="margin-right: 2%; font-size: 3em;" onclick="ClickedKey('2')">2</button>
-                    <button type="button" class="col btn btn-lg btn-danger" style="margin-right: 2%; font-size: 3em;" onclick="ClickedKey('3')">3</button>
-                    <button type="button" class="col-4 btn btn-lg btn-danger" style="font-size: 3em;" onclick="ClickedKey('backspace')"><i class="fas fa-backspace"></i></button>
-                </div>
-                <div class="form-row" style="height: 23%; margin-bottom: 2%;">
-                    <button type="button" class="col btn btn-lg btn-danger" style="margin-right: 2%; font-size: 3em;" onclick="ClickedKey('4')">4</button>
-                    <button type="button" class="col btn btn-lg btn-danger" style="margin-right: 2%; font-size: 3em;" onclick="ClickedKey('5')">5</button>
-                    <button type="button" class="col btn btn-lg btn-danger" style="margin-right: 2%; font-size: 3em;" onclick="ClickedKey('6')">6</button>
-                    <button type="button" class="col-4 btn btn-lg btn-danger" style="font-size: 3em;" onclick="ClickedKey('0')">0</button>
-                </div>
-                <div class="form-row" style="height: 23%; margin-bottom: 2%;">
-                    <button type="button" class="col btn btn-lg btn-danger" style="margin-right: 2%; font-size: 3em;" onclick="ClickedKey('7')">7</button>
-                    <button type="button" class="col btn btn-lg btn-danger" style="margin-right: 2%; font-size: 3em;" onclick="ClickedKey('8')">8</button>
-                    <button type="button" class="col btn btn-lg btn-danger" style="margin-right: 2%; font-size: 3em;" onclick="ClickedKey('9')">9</button>
-                    <button type="submit" class="col-4 btn btn-lg btn-danger" style="font-size: 3em;"><i class="fas fa-sign-in-alt"></i></button>
-                </div>
+        <div class="jumbotron" style="margin-top: 25vh;">
+            <h1>Arming alarm <i id="dots">. . . </i></h1>
+            <div class="progress">
+                <div id="armingProgress" class="progress-bar progress-bar-striped bg-danger progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-        </form>
+            <script>
+
+            function UpdateProgressBar() {
+                progress = parseInt($('#armingProgress').attr('aria-valuenow')) + 1;
+                if (progress >= 100) { setTimeout(function(){ window.location.href = "alarm.php"; }, 1000); }
+                $('#armingProgress').attr('aria-valuenow', progress).css('width', progress+'%');
+            }
+        
+            function Dots() {
+                temp = $('#dots').text();
+                dots = (temp.match(/. /g) || []).length;
+            
+                switch(dots) {
+                    case 1: $('#dots').text(". . ");   break;
+                    case 2: $('#dots').text(". . . "); break;
+                    case 3: $('#dots').text(". ");     break;
+                    default: $('#dots').text(". ");
+                }
+            }
+        
+            UpdateProgressBar();
+            Dots();
+        
+            setInterval(function() {
+                UpdateProgressBar();
+            }, 100);
+        
+            setInterval(function() {
+                Dots();
+            }, 700);
+        
+            </script>
+        </div>
     </main>
-    <script>
-
-    function ClickedKey(key) {
-        if (key == "backspace") {
-            $("#keycode-input").val("");
-        } else {
-            $("#keycode-input").val($('#keycode-input').val() + key);
-        }   
-    }
-
-    </script>
 </body>
 </html>

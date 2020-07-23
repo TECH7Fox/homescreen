@@ -5,7 +5,7 @@
                 <h3 class="card-header"><i class="fas fa-home"></i> Main <a class="float-right"><?php echo date("l j F Y"); ?></a></h3>
                 <div id="messageContainer" class="card-body overflow-hidden" style="height: 85%;"></div>
                 <div class="card-footer" style="height: 25%;">
-                    <a role="button" href="alarm.php" style="height: 100%; display: flex; align-items: center;" class="btn btn-block btn-danger">
+                    <a role="button" href="arm.php" style="height: 100%; display: flex; align-items: center;" class="btn btn-block btn-danger">
                         <i class="fas fa-lock" style="font-size: 3em; margin-left: auto; margin-right: auto;"></i>
                     </a>
                 </div>

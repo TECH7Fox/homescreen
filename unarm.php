@@ -11,8 +11,17 @@ if (hash('sha256', $_POST["keycode"]) == $row["value"]) {
     $sql = "UPDATE settings SET value='off' WHERE name='alarm'";
     $sth = $db->prepare($sql); 
     $sth->execute();
+
+    $sql = "SELECT value FROM settings WHERE name = 'discord_disarm'";
+    $sth = $db->prepare($sql); 
+    $sth->execute();
+    $row = $sth->fetch();
+
+    if ($row["value"] == "on") {
+        shell_exec('python /var/www/html/scripts/discord.py "Alarm deactivated!"');
+    }
 } else {
-    header("location: arm.php");
+    header("location: alarm.php");
 }
 
 include "templates/header.php"; ?>
