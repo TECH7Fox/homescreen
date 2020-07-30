@@ -34,7 +34,7 @@
 
 $('input[type=checkbox]').change(function() {
     $.ajax({                                
-        url: 'api/switch.php?switch=' + this.id + '&status=' + $(this).prop("checked")
+        url: 'scripts/updateSwitch.php?switch=' + this.id + '&status=' + $(this).prop("checked")
     });
 }); 
 

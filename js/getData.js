@@ -20,11 +20,11 @@ function GetData() {
         $('#notifications').html(table);
     });
 
-    $.ajax({                                
-        url: 'api/message.php'
-    }).done(function( table ) {
-        $('#messageContainer').html(table);
-    });
+    //$.ajax({                                
+    //    url: 'api/message.php'
+    //}).done(function( table ) {
+    //    $('#messageContainer').html(table);
+    //});
 
     $.ajax({                                
         url: 'api/weather.php'

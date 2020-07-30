@@ -81,7 +81,7 @@
 
 $('input[type=checkbox]').change(function() {
     $.ajax({                                
-        url: 'api/updateScript.php?script=' + this.id + '&status=' + $(this).prop("checked")
+        url: 'scripts/updateScript.php?script=' + this.id + '&status=' + $(this).prop("checked")
     });
     if ($(this).prop("checked")) {
         $(this).closest("tr").removeClass("table-danger").addClass("table-success");

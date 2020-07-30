@@ -15,7 +15,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-select.min.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
-    <?php include "scripts/custom-style.php"; ?>
+    <?php include "scripts/customStyle.php"; ?>
 </head>
 <body id="body" class="overflow-hidden" style="padding-top: 10vh;">
     <div class="se-pre-con"></div>
