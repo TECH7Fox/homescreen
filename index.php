@@ -33,7 +33,6 @@
                     <div class="h-100" style='background: url("<?php if (isset($row["background"])) { echo "assets/backgrounds/" . $row["background"]; } ?>"); background-position: 75% center; background-repeat: no-repeat; background-size: contain;'>
                         <h2 id="title" class="display-4"></h2>
                         <p id="message" class="lead"></p>
-                        <audio id="keyAudio" src="assets/sounds/beep.wav" preload="auto"></audio>
                     </div>
                     <script>
     
@@ -47,14 +46,14 @@
                         if (index < message.length) {
                             $(target).append(message[index++]);
                             if (message[index] !== " " && message[index] !== undefined) {
-                                const origAudio = document.getElementById("keyAudio");
+                                const origAudio = document.getElementById("letterAudio");
                                 const newAudio = origAudio.cloneNode()
                                 newAudio.play()
                             }
                             setTimeout(showText, interval, target, message, index, interval);
                         } else {
                             if (target !== "#message") {
-                                showText("#message", "<?php echo $message; ?>", 0, 100); 
+                                showText("#message", "<?php echo $message; ?>", 0, 75); 
                             }
                         }
                     }

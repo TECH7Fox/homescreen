@@ -45,7 +45,7 @@
                                         foreach(array_diff(scandir('assets/backgrounds'), array('.', '..')) as $val)  {
                                             echo '<option value="' . $val . '">' . $val . '</option>';
                                         }
-
+                                        // FIX BUG CHECKBOX ASKS updateScript
                                         ?>
                                     </select>
                                 </div>

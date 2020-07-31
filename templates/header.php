@@ -16,10 +16,16 @@
     <script src="js/bootstrap-select.min.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <?php include "scripts/customStyle.php"; ?>
+
 </head>
 <body id="body" class="overflow-hidden" style="padding-top: 10vh;">
     <div class="se-pre-con"></div>
-    <?php if (!strpos($_SERVER['PHP_SELF'], 'alarm.php') && !strpos($_SERVER['PHP_SELF'], 'arm.php') && !strpos($_SERVER['PHP_SELF'], 'unarm.php')) { ?>
+        <audio id="letterAudio" src="assets/sounds/beep.wav" preload="auto"></audio>
+        <audio id="disabledAudio" src="assets/sounds/disabled.wav" preload="auto"></audio>
+        <audio id="revealAudio" src="assets/sounds/reveal.wav" preload="auto"></audio>
+        <audio id="toggleAudio" src="assets/sounds/toggle.wav" preload="auto"></audio>
+        <audio id="clickAudio" src="assets/sounds/click.wav" preload="auto"></audio>
+        <?php if (!strpos($_SERVER['PHP_SELF'], 'alarm.php') && !strpos($_SERVER['PHP_SELF'], 'arm.php') && !strpos($_SERVER['PHP_SELF'], 'unarm.php')) { ?>
         <script src="js/getData.js"></script>
         <header>
             <nav style="height: 10vh;" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark justify-content-between overflow-hidden">
@@ -58,19 +64,42 @@
         startTime();
 
         </script>
-    <?php } ?>
-    <script>
+        <?php } ?>
+        <script>
 
-    loaded = false;
+        loaded = false;
 
-    $(window).on('load', function() {
-        loaded = true;
-        $(".se-pre-con").fadeOut("slow");
-    });
+        $(window).on('load', function() {
+            loaded = true;
+            $(".se-pre-con").fadeOut("slow");
+            playAudio('revealAudio');
+        });
 
-    setInterval(function() {
-        if (loaded == false) {
-            window.stop();
+        setInterval(function() {
+            if (loaded == false) {
+                window.stop();
+            }
+        }, 5 * 1000);
+
+        function playAudio(type) {
+            const origAudio = document.getElementById(type);
+            const newAudio = origAudio.cloneNode()
+            newAudio.play()
         }
-    }, 5 * 1000);
-    </script>
+
+        $(document).ready(function() {
+            $('input[data-toggle="toggle"]').change(function() {
+                playAudio('toggleAudio');
+            });
+            $('a, button').click(function() {
+                playAudio('clickAudio');
+            });
+            $('select').change(function() {
+                playAudio('clickAudio');
+            });
+            $('input[type="radio"]').change(function() {
+                playAudio('clickAudio');
+            });
+        });
+
+        </script>

@@ -49,11 +49,12 @@ include "templates/header.php";
         
             setInterval(function() {
                 UpdateProgressBar();
+                
             }, 100);
         
             setInterval(function() {
                 Dots();
-            }, 700);
+            }, 750);
         
             </script>
         </div>
