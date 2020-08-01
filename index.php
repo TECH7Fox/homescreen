@@ -2,11 +2,9 @@
     <main class="container">
         <div class="row h-100 m-0">
             <div class="col card m-0">
-                <h3 class="card-header"><i class="fas fa-home"></i> Main <a class="float-right"><?php echo date("l j F Y"); ?></a></h3>
+                <h3 class="card-header"><i class="fas fa-home"></i> Main <div class="float-right"><?php echo date("l j F Y"); ?></div></h3>
                 <div id="messageContainer" class="card-body overflow-hidden" style="height: 85%;">
                     <?php
-
-                    include "scripts/connectdb.php";
 
                     $sql = "SELECT * FROM messages WHERE date = " . "'" . date("Y-m-d", strtotime('+2 hours')) . "'";
                     $sth = $db->prepare($sql); 
@@ -41,22 +39,6 @@
                     $(window).on('load', function() {
                         showText("#title", "<?php echo $title; ?>", 0, 150);
                     });
-                
-                    function showText(target, message, index, interval) {   
-                        if (index < message.length) {
-                            $(target).append(message[index++]);
-                            if (message[index] !== " " && message[index] !== undefined) {
-                                const origAudio = document.getElementById("letterAudio");
-                                const newAudio = origAudio.cloneNode()
-                                newAudio.play()
-                            }
-                            setTimeout(showText, interval, target, message, index, interval);
-                        } else {
-                            if (target !== "#message") {
-                                showText("#message", "<?php echo $message; ?>", 0, 75); 
-                            }
-                        }
-                    }
                 
                     </script>
                 </div>

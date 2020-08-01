@@ -1,13 +1,8 @@
 <?php
 
-include "../scripts/connectdb.php";
+include "../scripts/dotEnv.php";
 
-$sql = "SELECT value FROM settings WHERE name = 'alarm'";
-$sth = $db->prepare($sql); 
-$sth->execute();
-$row = $sth->fetch();
-
-if ($row["value"] == "on") {
+if ($_ENV["alarm"]["armed"] != 0) {
     shell_exec("gpio mode 21 out");
     shell_exec("gpio write 21 0");
     echo "on";

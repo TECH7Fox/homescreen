@@ -4,7 +4,7 @@ function GetData() {
         url: 'api/alarm.php'
     }).done(function( table ) {
         if (table !== "off") {
-            window.location.href = "alarm.php";
+            window.location.href = "alarm.php?esd=awd";
         }
     }); 
 

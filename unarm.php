@@ -1,51 +1,35 @@
-<?php 
-
-include "scripts/connectdb.php";
-
-$sql = "SELECT value FROM settings WHERE name = 'keycode'";
-$sth = $db->prepare($sql); 
-$sth->execute();
-$row = $sth->fetch();
-
-if (hash('sha256', $_POST["keycode"]) == $row["value"]) {
-    $sql = "UPDATE settings SET value='off' WHERE name='alarm'";
-    $sth = $db->prepare($sql); 
-    $sth->execute();
-
-    $sql = "SELECT value FROM settings WHERE name = 'discord_disarm'";
-    $sth = $db->prepare($sql); 
-    $sth->execute();
-    $row = $sth->fetch();
-
-    if ($row["value"] == "on") {
-        shell_exec('python /var/www/html/scripts/discord.py "Alarm deactivated!"');
+    <?php include "templates/header.php";
+    
+    if (hash('sha256', $_POST["keycode"]) == $_ENV["alarm"]["key"]) {
+        echo "WAd";
+        $_ENV["alarm"]["armed"] = 0;
+        updateDotEnv($_ENV);
+    
+        if ($_ENV["discord"]["discord_sendby_unarm"] == 1) {
+            shell_exec('python /var/www/html/scripts/discord.py "Alarm deactivated!"');
+        }
+    } else {
+        echo $sefjsef;
+        header("Location: alarm.php");
+        die();
     }
-} else {
-    header("location: alarm.php");
-}
-
-include "templates/header.php"; ?>
+    
+    ?>
     <main class="container">
-        <div class="jumbotron" style="margin-top: 25vh;">
+        <div class="jumbotron" style="margin-top: 15vh;">
             <h1 class="text-success text-center"><i class="fas fa-unlock"></i><br>Access granted</h1>
             <div class="progress" style="margin-top: 5vh">
-                <div id="armingProgress" class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                <div id="progress" class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
         </div>
     </main>
     <script>
 
-    function UpdateProgressBar() {
-        progress = parseInt($('#armingProgress').attr('aria-valuenow')) + 1;
-        if (progress >= 100) { setTimeout(function(){ window.location.href = "index.php"; }, 1000); }
-        $('#armingProgress').attr('aria-valuenow', progress).css('width', progress+'%');
-    }
-
-    UpdateProgressBar();
+    UpdateProgressBar("index.php");
 
     setInterval(function() {
-        UpdateProgressBar();
-    }, 50);
+        UpdateProgressBar("index.php");
+    }, 25);
 
     </script>
 </body>

@@ -26,16 +26,5 @@
             </div>
         </form>
     </main>
-    <script>
-
-    function ClickedKey(key) {
-        if (key == "backspace") {
-            $("#keycode-input").val("");
-        } else {
-            $("#keycode-input").val($('#keycode-input').val() + key);
-        }   
-    }
-
-    </script>
 </body>
 </html>

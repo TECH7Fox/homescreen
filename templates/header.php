@@ -15,8 +15,12 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-select.min.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
-    <?php include "scripts/customStyle.php"; ?>
-
+    <script src="js/functions.js"></script>
+    <?php
+        include "scripts/customStyle.php";
+        include "scripts/connectdb.php";
+        include "scripts/dotEnv.php";
+    ?>
 </head>
 <body id="body" class="overflow-hidden" style="padding-top: 10vh;">
     <div class="se-pre-con"></div>
@@ -44,23 +48,6 @@
         </header>
         <script>
 
-        function startTime() {
-            var today = new Date();
-            var h = today.getHours();
-            var m = today.getMinutes();
-            var s = today.getSeconds();
-            m = checkTime(m);
-            s = checkTime(s);
-            document.getElementById('clock').innerHTML =
-            h + ":" + m + ":" + s;
-            var t = setTimeout(startTime, 500);
-        }
-
-        function checkTime(i) {
-            if (i < 10) {i = "0" + i};
-            return i;
-        }
-
         startTime();
 
         </script>
@@ -80,12 +67,6 @@
                 window.stop();
             }
         }, 5 * 1000);
-
-        function playAudio(type) {
-            const origAudio = document.getElementById(type);
-            const newAudio = origAudio.cloneNode()
-            newAudio.play()
-        }
 
         $(document).ready(function() {
             $('input[data-toggle="toggle"]').change(function() {
