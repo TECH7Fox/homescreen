@@ -93,22 +93,23 @@
                                     for ($i = 1; $i <= 4; $i++) { ?>
                                         <div class="form-group mr-auto">
                                             <h5>Camera <?php echo $i; ?></h5>
-                                            <select class="selectpicker" data-style="btn-primary" name="cam_<?php echo $i; ?>">
+                                            <select class="selectpicker" data-style="btn-primary" name="camera_<?php echo $i; ?>">
                                                 <?php
 
-                                                $sql = "SELECT settings.value, servers.name FROM settings, servers WHERE settings.name = 'cam_$i' AND servers.type LIKE '%cam%' ORDER BY settings.name";
+                                                $sql = "SELECT name FROM servers WHERE type = 'cam'";
                                                 $sth = $db->prepare($sql); 
                                                 $sth->execute();
 
                                                 while($row = $sth->fetch()) {  
-                                                    echo '<option' . (($row["name"] == $row["value"])?' selected':"") . ' value="' . $row["name"] . '">' . $row["name"] . '</option>';
-                                                    if (empty($row["value"])) { $none = true; }
+                                                    echo '<option' . (($row["name"] == $_ENV["cams"]["camera_$i"])?' selected':"") . ' value="' . $row["name"] . '">' . $row["name"] . '</option>';
+                                                    if (empty($_ENV["cams"]["camera_$i"])) { $none = true; }
                                                 }   
                                                 if ($none) {
                                                     echo '<option selected value="">None</option>';
                                                 } else {
                                                     echo '<option value="">None</option>';
                                                 }
+                                                
                                                 ?>
                                             </select>
                                         </div>
