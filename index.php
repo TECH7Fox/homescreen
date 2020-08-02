@@ -34,8 +34,24 @@
                     </div>
                     <script>
     
-                    // make sync function
-                    
+                    // make sync function and move function to functions.js
+
+                    function showText(target, message, index, interval) {   
+                        if (index < message.length) {
+                            $(target).append(message[index++]);
+                            if (message[index] !== " " && message[index] !== undefined) {
+                                const origAudio = document.getElementById("letterAudio");
+                                const newAudio = origAudio.cloneNode()
+                                newAudio.play()
+                            }
+                            setTimeout(showText, interval, target, message, index, interval);
+                        } else {
+                            if (target !== "#message") {
+                                showText("#message", "<?php echo $message; ?>", 0, 75); 
+                            }
+                        }
+                    }
+
                     $(window).on('load', function() {
                         showText("#title", "<?php echo $title; ?>", 0, 150);
                     });

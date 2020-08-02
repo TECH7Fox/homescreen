@@ -78,10 +78,10 @@ INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES (
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("piano",   "light", 0, "manual", 1234, 1237);
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("tv",      "light", 0, "manual", 1234, 1237);
 
-INSERT INTO servers (type, name, ip, url) VALUES ("modem", "Connect Box Ziggo", "192.168.178.1", "192.168.178.11");
-INSERT INTO servers (type, name, ip, url) VALUES ("cam", "Outdoor Dome Camera", "192.168.178.9", "http://192.168.178.10:8080/54fa5cc90312fbb7be0d206233fbe544/embed/r2knn1w6yK/olkrGJcEwA/fullscreen%7Cjquery");
-INSERT INTO servers (type, name, ip, url) VALUES ("cam", "Outdoor WL Camera 2", "192.168.178.8", "none");
-INSERT INTO servers (type, name, ip, url) VALUES ("cam", "Outdoor WL Camera 1", "192.168.178.7", "none");
+INSERT INTO servers (type, name, ip, url) VALUES ("modem", "Connect Box Ziggo", "192.168.178.1", "192.168.178.1");
+INSERT INTO servers (type, name, ip, url) VALUES ("cam", "Dome Camera", "192.168.178.9", "http://192.168.178.10:8080/54fa5cc90312fbb7be0d206233fbe544/embed/r2knn1w6yK/olkrGJcEwA/fullscreen%7Cjquery");
+INSERT INTO servers (type, name, ip, url) VALUES ("cam", "WL Camera 2", "192.168.178.8", "none");
+INSERT INTO servers (type, name, ip, url) VALUES ("cam", "WL Camera 1", "192.168.178.7", "none");
 INSERT INTO servers (type, name, ip, url) VALUES ("cctv", "Camera Recorder", "192.168.178.10", "192.168.178.10:8080");
 INSERT INTO servers (type, name, ip, url) VALUES ("alarm", "Alarm System", "192.168.178.11", "192.168.178.11");
 

@@ -24,7 +24,6 @@ video {
     background: url(
     <?php 
     
-    include "connectdb.php"; 
     $sql = "SELECT value FROM settings WHERE name = 'loading_screen'";
     $sth = $db->prepare($sql); 
     $sth->execute(); 

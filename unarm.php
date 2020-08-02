@@ -1,21 +1,23 @@
-    <?php include "templates/header.php";
+    <?php 
     
+    include "templates/header.php";
+
     if (hash('sha256', $_POST["keycode"]) == $_ENV["alarm"]["key"]) {
-        echo "match";
-        //$_ENV["alarm"]["armed"] = 0;
-        //updateDotEnv($_ENV);
+
+        $_ENV["alarm"]["armed"] = 0;
+        updateDotEnv($_ENV);
     
-        //if ($_ENV["discord"]["discord_sendby_unarm"] == 1) {
-        //    shell_exec('python /var/www/html/scripts/discord.py "Alarm deactivated!"');
-        //}
+        if ($_ENV["discord"]["discord_sendby_unarm"] == 1) {
+            shell_exec('python /var/www/html/scripts/discord.py "Alarm deactivated!"');
+        }
 
     } else {
-        echo "denied";
-        header("location: alarm.php");
+        echo "<script type='text/javascript'> document.location.href = 'alarm.php'; </script>";
         die();
     }
-    
+
     ?>
+    
     <main class="container">
         <div class="jumbotron" style="margin-top: 15vh;">
             <h1 class="text-success text-center"><i class="fas fa-unlock"></i><br>Access granted</h1>

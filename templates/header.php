@@ -17,8 +17,8 @@
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/functions.js"></script>
     <?php
-        include "scripts/customStyle.php";
         include "scripts/connectdb.php";
+        include "scripts/customStyle.php";
         include "scripts/dotEnv.php";
     ?>
 </head>

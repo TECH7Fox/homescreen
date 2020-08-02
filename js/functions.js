@@ -46,19 +46,3 @@ function ClickedKey(key) {
         $("#keycode-input").val($('#keycode-input').val() + key);
     }   
 }
-
-function showText(target, message, index, interval) {   
-    if (index < message.length) {
-        $(target).append(message[index++]);
-        if (message[index] !== " " && message[index] !== undefined) {
-            const origAudio = document.getElementById("letterAudio");
-            const newAudio = origAudio.cloneNode()
-            newAudio.play()
-        }
-        setTimeout(showText, interval, target, message, index, interval);
-    } else {
-        if (target !== "#message") {
-            showText("#message", "<?php echo $message; ?>", 0, 75); 
-        }
-    }
-}
