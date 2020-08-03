@@ -18,8 +18,8 @@
     <script src="js/functions.js"></script>
     <?php
         include "scripts/connectdb.php";
-        include "scripts/customStyle.php";
         include "scripts/dotEnv.php";
+        include "scripts/customStyle.php";
     ?>
 </head>
 <body id="body" class="overflow-hidden" style="padding-top: 10vh;">

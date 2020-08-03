@@ -66,16 +66,13 @@
                                 <h5>Animation</h5>
                                 <select class="selectpicker" data-style="btn-primary" name="loading_screen">
                                     <?php
-                                    $sql = "SELECT value FROM settings WHERE name = 'loading_screen'";
-                                    $sth = $db->prepare($sql); 
-                                    $sth->execute();
-                                    $row = $sth->fetch();
  
                                     foreach(array_diff(scandir('assets/loadingScreens'), array('.', '..')) as $val)  {
                                         $arr = explode(".", $val, 2);
-                                        echo '<option' . (($arr[0] == $row["value"])?' selected':"") . ' value="' . $arr[0] . '">' . $arr[0] . '</option>';
-                                        echo $arr[0] . $row["value"];
+                                        echo '<option' . (($arr[0] == $_ENV["cosmetics"]["loading_screen"])?' selected':"") . ' value="' . $arr[0] . '">' . $arr[0] . '</option>';
+                                        echo $arr[0] . $_ENV["cosmetics"]["loading_screen"];
                                     }
+
                                     ?>
                                 </select>
                                 </div>
@@ -124,27 +121,39 @@
                                 <small class="form-text text-muted">Select when to send a message to the discord bot.</small>
                             </div>
                             <div class="col h-100 d-flex flex-wrap overflow-auto">
-                                <?php
-
-                                $sql = "SELECT * FROM settings WHERE name LIKE '%discord%'";
-                                $sth = $db->prepare($sql); 
-                                $sth->execute();
-
-                                while($row = $sth->fetch()) {
-                                    echo '
-                                        <div class="form-group mr-auto">
-                                        <h5>' . str_replace('discord_', '', $row["name"]) . '</h5>
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-lg btn-primary' . (($row["value"] == "on")?' active':"") . '">
-                                        <input type="radio" name="' . $row["name"] . '"' . (($row["value"] == "on")?' checked="" ':"") . 'value="on" autocomplete="off"> On
+                                <div class="form-group mr-auto">
+                                    <h5>Arm</h5>
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["discord_sendby_arm"] == 1)?' active':""; ?>">
+                                            <input type="radio" name="discord_sendby_arm" <?php echo ($_ENV["discord"]["discord_sendby_arm"] == 1)?' checked="" ':""; ?> value="1" autocomplete="off"> On
                                         </label>
-                                        <label class="btn btn-lg btn-primary' . (($row["value"] == "off")?' active':"") . '">
-                                        <input type="radio" name="' . $row["name"] . '"' . (($row["value"] == "off")?' checked="" ':"") . 'value="off" autocomplete="off"> Off
-                                        </label></div></div>
-                                    ';
-                                }
-
-                                ?>
+                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["discord_sendby_arm"] == 0)?' active':""; ?>">
+                                        <input type="radio" name="discord_sendby_arm" <?php echo ($_ENV["discord"]["discord_sendby_arm"] == 0)?' checked="" ':""; ?> value="0" autocomplete="off"> Off
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group mr-auto">
+                                    <h5>Unarm</h5>
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["discord_sendby_unarm"] == 1)?' active':""; ?>">
+                                            <input type="radio" name="discord_sendby_unarm" <?php echo ($_ENV["discord"]["discord_sendby_unarm"] == 1)?' checked="" ':""; ?> value="1" autocomplete="off"> On
+                                        </label>
+                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["discord_sendby_unarm"] == 0)?' active':""; ?>">
+                                        <input type="radio" name="discord_sendby_unarm" <?php echo ($_ENV["discord"]["discord_sendby_unarm"] == 0)?' checked="" ':""; ?> value="0" autocomplete="off"> Off
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group mr-auto">
+                                    <h5>Tripped</h5>
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["discord_sendby_tripped"] == 1)?' active':""; ?>">
+                                            <input type="radio" name="discord_sendby_tripped" <?php echo ($_ENV["discord"]["discord_sendby_tripped"] == 1)?' checked="" ':""; ?> value="1" autocomplete="off"> On
+                                        </label>
+                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["discord_sendby_tripped"] == 0)?' active':""; ?>">
+                                        <input type="radio" name="discord_sendby_tripped" <?php echo ($_ENV["discord"]["discord_sendby_tripped"] == 0)?' checked="" ':""; ?> value="0" autocomplete="off"> Off
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

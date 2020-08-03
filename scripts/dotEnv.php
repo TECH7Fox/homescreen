@@ -2,7 +2,7 @@
 
 $_ENV = parse_ini_file('.env', true);
 
-function updateDotEnv($data) { 
+function updateDotEnv($data, $path) { 
     $content = ""; 
     
     foreach($data as $section=>$values){
@@ -12,7 +12,7 @@ function updateDotEnv($data) {
         }
     }
     
-    if (!$handle = fopen('.env', 'w')) { 
+    if (!$handle = fopen($path, 'w')) { 
         return false; 
     }
     $success = fwrite($handle, $content);

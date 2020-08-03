@@ -13,7 +13,6 @@ video {
     margin: 0 !important;
 }
 
-
 .se-pre-con {
     position: fixed;
     left: 0px;
@@ -21,16 +20,9 @@ video {
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background: url(
-    <?php 
-    
-    $sql = "SELECT value FROM settings WHERE name = 'loading_screen'";
-    $sth = $db->prepare($sql); 
-    $sth->execute(); 
-    $row = $sth->fetch();
-    echo "assets/loadingScreens/" . $row["value"] . ".gif"; 
-    
-    ?>) darkgray;
+    background: url(<?php 
+        echo "assets/loadingScreens/" . $_ENV["cosmetics"]["loading_screen"] . ".gif"; 
+        ?>) darkgray;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
