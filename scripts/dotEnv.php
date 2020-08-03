@@ -1,8 +1,8 @@
 <?php
 
-$_ENV = parse_ini_file('.env', true);
+$_ENV = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/homescreen/config/.env', true);
 
-function updateDotEnv($data, $path) { 
+function updateDotEnv($data) { 
     $content = ""; 
     
     foreach($data as $section=>$values){
@@ -12,13 +12,18 @@ function updateDotEnv($data, $path) {
         }
     }
     
-    if (!$handle = fopen($path, 'w')) { 
+    if (!$handle = fopen($_SERVER['DOCUMENT_ROOT'] . '/homescreen/config/.env', 'w')) { 
         return false; 
     }
     $success = fwrite($handle, $content);
     fclose($handle); 
 
     return $success; 
+}
+
+if (empty($_ENV)) {
+    $_ENV = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/homescreen/config/default.env', true);
+    updateDotEnv($_ENV);
 }
 
 ?>

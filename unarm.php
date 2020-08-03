@@ -5,7 +5,7 @@
     if (hash('sha256', $_POST["keycode"]) == $_ENV["alarm"]["key"]) {
 
         $_ENV["alarm"]["armed"] = 0;
-        updateDotEnv($_ENV, ".env");
+        updateDotEnv($_ENV);
     
         if ($_ENV["discord"]["discord_sendby_unarm"] == 1) {
             shell_exec('python /var/www/html/scripts/discord.py "Alarm deactivated!"');
