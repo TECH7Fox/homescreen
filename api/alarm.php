@@ -1,7 +1,6 @@
 <?php
 
-//fix this
-$_ENV = parse_ini_file('../.env', true);
+include "../scripts/dotEnv.php";
 
 if (!$_ENV["alarm"]["armed"] == 0) {
     shell_exec("gpio mode 21 out");
