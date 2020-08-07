@@ -7,7 +7,7 @@ $sth = $db->prepare($sql);
 $sth->execute();
 
 while ($row = $sth->fetch()) {
-    if (strpos(exec('ping -n 1 -w 1 ' . $row["ip"]), "100%") !== false) {
+    if (strpos(exec('fping -c1 -t50 ' . $row["ip"]), "100%") !== false) {
         echo '<tr class="table-danger"><td>';
     } else {
         echo '<tr class="table-success"><td>';

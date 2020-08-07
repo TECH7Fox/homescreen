@@ -2,13 +2,6 @@ DROP DATABASE IF EXISTS homescreen;
 CREATE DATABASE homescreen; 
 USE homescreen; 
 
-DROP TABLE IF EXISTS settings; 
-CREATE TABLE settings ( 
-  name VARCHAR(30),
-  value VARCHAR(100),
-  PRIMARY KEY (name)
-); 
-
 DROP TABLE IF EXISTS switches;
 CREATE TABLE switches (
   location VARCHAR(30),
@@ -17,16 +10,6 @@ CREATE TABLE switches (
   value VARCHAR(10),
   on_code SMALLINT,
   off_code SMALLINT
-);
-
-DROP TABLE IF EXISTS autoScripts;
-CREATE TABLE autoScripts (
-  name VARCHAR(30),
-  type VARCHAR(30),
-  path VARCHAR(100),
-  status BIT,
-  pid SMALLINT,
-  PRIMARY KEY (name)
 );
 
 DROP TABLE IF EXISTS servers; 
@@ -57,17 +40,6 @@ CREATE TABLE messages (
   background VARCHAR(100),
   PRIMARY KEY (id)
 );
-
-INSERT INTO settings (name, value) VALUES ("alarm", "off");
-INSERT INTO settings (name, value) VALUES ("keycode", "2c17079b4da72e80c1875f7d2feefe79322a71544c5de1c838ee0230f3598312");
-INSERT INTO settings (name, value) VALUES ("loading_screen", "fox");
-INSERT INTO settings (name, value) VALUES ("cam_1", "");
-INSERT INTO settings (name, value) VALUES ("cam_2", "");
-INSERT INTO settings (name, value) VALUES ("cam_3", "");
-INSERT INTO settings (name, value) VALUES ("cam_4", "");
-INSERT INTO settings (name, value) VALUES ("discord_arm", "on");
-INSERT INTO settings (name, value) VALUES ("discord_disarm", "on");
-INSERT INTO settings (name, value) VALUES ("discord_tripped", "on");
 
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("garden",  "light", 0, "manual", 1234, 1237);
 INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("outside", "light", 0, "manual", 1234, 1237);
