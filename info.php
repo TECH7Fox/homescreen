@@ -38,10 +38,11 @@
                             foreach(array_diff(scandir('scripts/auto'), array('.', '..')) as $val)  {
 
                                 $output = shell_exec("ps aux | pgrep -lf $val");
-                                if (empty($output)) { 
-                                    $status = false;
-                                } else {
+                                //fix this bug so all processes work
+                                if (strpos($output, "python3")) { 
                                     $status = true;
+                                } else {
+                                    $status = false;
                                 }
 
                                 echo '<tr class="table-' . (($status)?"success":"danger") . '">'; 
