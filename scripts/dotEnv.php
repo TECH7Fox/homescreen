@@ -1,6 +1,6 @@
 <?php
 
-$_ENV = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/homescreen/config/.env', true);
+$_ENV = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/config/.env', true);
 
 function updateDotEnv($data) { 
     $content = ""; 
@@ -12,7 +12,7 @@ function updateDotEnv($data) {
         }
     }
     
-    if (!$handle = fopen($_SERVER['DOCUMENT_ROOT'] . '/homescreen/config/.env', 'w')) { 
+    if (!$handle = fopen($_SERVER['DOCUMENT_ROOT'] . '/config/.env', 'w')) { 
         return false; 
     }
     $success = fwrite($handle, $content);
@@ -22,7 +22,7 @@ function updateDotEnv($data) {
 }
 
 if (empty($_ENV)) {
-    $_ENV = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/homescreen/config/default.env', true);
+    $_ENV = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/config/default.env', true);
     updateDotEnv($_ENV);
 }
 
