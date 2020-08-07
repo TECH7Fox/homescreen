@@ -38,7 +38,7 @@
                             foreach(array_diff(scandir('scripts/auto'), array('.', '..')) as $val)  {
 
                                 $output = shell_exec('ps aux | pgrep -f');
-                                if (!empty($output)) { 
+                                if (empty($output)) { 
                                     $status = false;
                                 } else {
                                     $status = true;
