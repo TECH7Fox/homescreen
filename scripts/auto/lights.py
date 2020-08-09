@@ -11,7 +11,7 @@ city = LocationInfo("Amsterdam", "Netherlands", "Europe/Amsterdam")
 alarm = 0
 
 while True:
-    raw = req.get("http://localhost/Alarm/api/lights.php")
+    raw = req.get("http://localhost/api/lights.php")
     json_object = raw.json()
 
     for switch in json_object:
