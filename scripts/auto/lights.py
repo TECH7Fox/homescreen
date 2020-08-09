@@ -36,4 +36,5 @@ while True:
     print("Sunrise: " + s['sunrise'].replace(tzinfo=None).strftime("%m/%d/%Y, %H:%M:%S"))
     print("Sunset: " + s['sunset'].replace(tzinfo=None).strftime("%m/%d/%Y, %H:%M:%S"))
     print("Current time: " + datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
+    print("")
     time.sleep(50)
