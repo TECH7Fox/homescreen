@@ -46,7 +46,7 @@
                                 }
 
                                 echo '<tr class="table-' . (($status)?"success":"danger") . '">'; 
-                                echo '<td>' . $val . '</td>';
+                                echo '<td><i class="fas fa-scroll"></i> ' . $val . '</td>';
                                 echo '<td><input type="checkbox" ' . (($status)?"checked":"") . ' data-onstyle="success" data-offstyle="danger" data-style="border" id="' . $val . '" data-toggle="toggle"/>';
                                 echo '</tr>';
                             }
