@@ -23,17 +23,16 @@ while True:
         if datetime.now() >= s['sunset'].replace(tzinfo=None) or datetime.now() <= s['sunrise'].replace(tzinfo=None):
             if switch["value"] == "auto_alarm":
                 if env["alarm"]["armed"] != 1:
-                    #os.system(["paths"]["433Utils"] + "/433Utils/RPi_utils/codesend " + switch["on_code"]) #turn on
+                    os.system(["paths"]["433Utils"] + "/433Utils/RPi_utils/codesend " + switch["on_code"])
                     print("turn light on")
             else:
-                #os.system(env["paths"]["433Utils"] + "/433Utils/RPi_utils/codesend " + switch["on_code"]) #turn on
+                os.system(env["paths"]["433Utils"] + "/433Utils/RPi_utils/codesend " + switch["on_code"])
                 print("turn light on")
         else:
-            #os.system(env["paths"]["433Utils"] + "/433Utils/RPi_utils/codesend " + switch["off_code"]) #turn off
+            os.system(env["paths"]["433Utils"] + "/433Utils/RPi_utils/codesend " + switch["off_code"])
             print("turn light off")
 
-    print(env["alarm"]["armed"])
-    print(env["paths"]["433Utils"])
+    print("")
     print("Sunrise: " + s['sunrise'].replace(tzinfo=None).strftime("%m/%d/%Y, %H:%M:%S"))
     print("Sunset: " + s['sunset'].replace(tzinfo=None).strftime("%m/%d/%Y, %H:%M:%S"))
     print("Current time: " + datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
