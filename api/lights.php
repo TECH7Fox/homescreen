@@ -1,6 +1,7 @@
 <?php
 
 include "../scripts/connectdb.php";
+include "../scripts/dotEnv.php";
 
 $sql = 'SELECT * FROM switches WHERE type = "light" AND value = "auto" OR value = "auto_alarm"';
 $sth = $db->prepare($sql);
@@ -10,4 +11,5 @@ while ($row = $sth->fetch()) {
     $switches[] = $row;
 }
 
-echo json_encode($switches);
+$json = json_encode($switches);
+echo $json;

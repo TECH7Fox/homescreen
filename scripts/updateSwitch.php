@@ -1,6 +1,7 @@
 <?php
 
 include "../scripts/connectdb.php";
+include "../scripts/dotEnv.php";
 
 $switch = explode("_", $_GET["switch"]);
 
@@ -14,5 +15,5 @@ $sth->execute();
 $row = $sth->fetch();
 
 for ($i = 1; $i <= 3; $i++) {
-    shell_exec("sudo ./home/pi/433Utils/RPi_utils/codesend " . ($_GET["status"] == "true"?$row["on_code"]:$row["off_code"]));
+    shell_exec($_ENV["paths"]["443Utils_path"] . "/433Utils/RPi_utils/codesend " . ($_GET["status"] == "true"?$row["on_code"]:$row["off_code"]));
 }

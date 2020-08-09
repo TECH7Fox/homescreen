@@ -26,15 +26,8 @@ while True:
         else:
             os.system("/home/pi/433Utils/RPi_utils/codesend " + switch["off_code"]) #turn off
 
-
-    #s = sun(city.observer, date=datetime.date(2009, 4, 22))
-    #if datetime.datetime.now() >= s['sunset'].replace(tzinfo=None) or datetime.datetime.now() <= s['sunrise'].replace(tzinfo=None):
-    #    os.system("/home/pi/433Utils/RPi_utils/codesend 5441") #turn on
-    #else:
-    #    os.system("/home/pi/433Utils/RPi_utils/codesend 5444") #turn off
-
     print("")
     print("Sunrise: " + s['sunrise'].replace(tzinfo=None).strftime("%m/%d/%Y, %H:%M:%S"))
     print("Sunset: " + s['sunset'].replace(tzinfo=None).strftime("%m/%d/%Y, %H:%M:%S"))
-    print("Current time: " + datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
+    print("Current time: " + datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
     time.sleep(50)
