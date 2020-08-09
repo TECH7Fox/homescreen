@@ -3,7 +3,7 @@
 $_ENV["alarm"]["armed"] = 1;
 updateDotEnv($_ENV);
 
-if ($_ENV["discord"]["discord_sendby_arm"] == 1) {
+if ($_ENV["discord"]["sendby_arm"] == 1) {
     shell_exec('python /var/www/html/scripts/discord.py "Alarm activated!"');
 }
 

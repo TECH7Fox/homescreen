@@ -124,33 +124,33 @@
                                 <div class="form-group mr-auto">
                                     <h5>Arm</h5>
                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["discord_sendby_arm"] == 1)?' active':""; ?>">
-                                            <input type="radio" name="discord_sendby_arm" <?php echo ($_ENV["discord"]["discord_sendby_arm"] == 1)?' checked="" ':""; ?> value="1" autocomplete="off"> On
+                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["sendby_arm"] == 1)?' active':""; ?>">
+                                            <input type="radio" name="sendby_arm" <?php echo ($_ENV["discord"]["sendby_arm"] == 1)?' checked="" ':""; ?> value="1" autocomplete="off"> On
                                         </label>
-                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["discord_sendby_arm"] == 0)?' active':""; ?>">
-                                        <input type="radio" name="discord_sendby_arm" <?php echo ($_ENV["discord"]["discord_sendby_arm"] == 0)?' checked="" ':""; ?> value="0" autocomplete="off"> Off
+                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["sendby_arm"] == 0)?' active':""; ?>">
+                                        <input type="radio" name="sendby_arm" <?php echo ($_ENV["discord"]["sendby_arm"] == 0)?' checked="" ':""; ?> value="0" autocomplete="off"> Off
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group mr-auto">
                                     <h5>Unarm</h5>
                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["discord_sendby_unarm"] == 1)?' active':""; ?>">
-                                            <input type="radio" name="discord_sendby_unarm" <?php echo ($_ENV["discord"]["discord_sendby_unarm"] == 1)?' checked="" ':""; ?> value="1" autocomplete="off"> On
+                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["sendby_unarm"] == 1)?' active':""; ?>">
+                                            <input type="radio" name="sendby_unarm" <?php echo ($_ENV["discord"]["sendby_unarm"] == 1)?' checked="" ':""; ?> value="1" autocomplete="off"> On
                                         </label>
-                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["discord_sendby_unarm"] == 0)?' active':""; ?>">
-                                        <input type="radio" name="discord_sendby_unarm" <?php echo ($_ENV["discord"]["discord_sendby_unarm"] == 0)?' checked="" ':""; ?> value="0" autocomplete="off"> Off
+                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["sendby_unarm"] == 0)?' active':""; ?>">
+                                        <input type="radio" name="sendby_unarm" <?php echo ($_ENV["discord"]["sendby_unarm"] == 0)?' checked="" ':""; ?> value="0" autocomplete="off"> Off
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group mr-auto">
                                     <h5>Tripped</h5>
                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["discord_sendby_tripped"] == 1)?' active':""; ?>">
-                                            <input type="radio" name="discord_sendby_tripped" <?php echo ($_ENV["discord"]["discord_sendby_tripped"] == 1)?' checked="" ':""; ?> value="1" autocomplete="off"> On
+                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["sendby_tripped"] == 1)?' active':""; ?>">
+                                            <input type="radio" name="sendby_tripped" <?php echo ($_ENV["discord"]["sendby_tripped"] == 1)?' checked="" ':""; ?> value="1" autocomplete="off"> On
                                         </label>
-                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["discord_sendby_tripped"] == 0)?' active':""; ?>">
-                                        <input type="radio" name="discord_sendby_tripped" <?php echo ($_ENV["discord"]["discord_sendby_tripped"] == 0)?' checked="" ':""; ?> value="0" autocomplete="off"> Off
+                                        <label class="btn btn-lg btn-primary<?php echo ($_ENV["discord"]["sendby_tripped"] == 0)?' active':""; ?>">
+                                        <input type="radio" name="sendby_tripped" <?php echo ($_ENV["discord"]["sendby_tripped"] == 0)?' checked="" ':""; ?> value="0" autocomplete="off"> Off
                                         </label>
                                     </div>
                                 </div>

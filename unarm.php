@@ -7,7 +7,7 @@
         $_ENV["alarm"]["armed"] = 0;
         updateDotEnv($_ENV);
     
-        if ($_ENV["discord"]["discord_sendby_unarm"] == 1) {
+        if ($_ENV["discord"]["sendby_unarm"] == 1) {
             shell_exec('python /var/www/html/scripts/discord.py "Alarm deactivated!"');
         }
 

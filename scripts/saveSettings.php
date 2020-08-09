@@ -19,9 +19,9 @@ for ($i = 1; $i <= 4; $i++) {
 
 $_ENV["cosmetics"]["loading_screen"] = $_POST["loading_screen"];
 
-$_ENV["discord"]["discord_sendby_arm"]     = $_POST["discord_sendby_arm"];
-$_ENV["discord"]["discord_sendby_unarm"]   = $_POST["discord_sendby_unarm"];
-$_ENV["discord"]["discord_sendby_tripped"] = $_POST["discord_sendby_tripped"];
+$_ENV["discord"]["sendby_arm"]     = $_POST["sendby_arm"];
+$_ENV["discord"]["sendby_unarm"]   = $_POST["sendby_unarm"];
+$_ENV["discord"]["sendby_tripped"] = $_POST["sendby_tripped"];
 
 updateDotEnv($_ENV);
 
