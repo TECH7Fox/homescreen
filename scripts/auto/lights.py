@@ -23,7 +23,7 @@ while True:
         if datetime.now() >= s['sunset'].replace(tzinfo=None) or datetime.now() <= s['sunrise'].replace(tzinfo=None):
             if switch["value"] == "auto_alarm":
                 if env["alarm"]["armed"] != 1:
-                    os.system(["paths"]["433Utils"] "/433Utils/RPi_utils/codesend " + switch["on_code"]) #turn on
+                    os.system(["paths"]["433Utils"] + "/433Utils/RPi_utils/codesend " + switch["on_code"]) #turn on
                     print("turn light on")
             else:
                 os.system(env["paths"]["433Utils"] + "/433Utils/RPi_utils/codesend " + switch["on_code"]) #turn on
