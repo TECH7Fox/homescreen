@@ -3,22 +3,7 @@
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     <main class="container">
         <div class="card">
-            <h3 class="card-header"><i class="fas fa-toggle-on"></i> Switches<button type="button" data-toggle="modal" data-target="#createSwitch" class="btn btn-success btn-lg float-right"><i class="fas fa-plus"></i> Add new switch</button></h3>
-            <div class="modal fade" id="createSwitch" tabindex="-1" role="dialog" aria-labelledby="createNewMessage" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <form class="modal-content" method="POST" action="scripts/createMessage.php">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Create new switch</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Work in progress
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <h3 class="card-header"><i class="fas fa-toggle-on"></i> Switches</h3>
             <div class="card-body h-100">
                 <div class="h-100 d-flex flex-wrap overflow-auto">
                     <?php

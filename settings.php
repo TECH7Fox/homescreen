@@ -1,27 +1,103 @@
 <?php include "templates/header.php"; ?>
     <main class="container">
-        
-        <form method="POST" action="scripts/saveSettings.php" class="card">
+        <div class="modal fade" id="createSwitch" tabindex="-1" role="dialog" aria-labelledby="createNewSwitch" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <form class="modal-content" method="POST" action="scripts/createMessage.php">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create new switch</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Work in progress
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-lg btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal fade" id="createMessage" tabindex="-1" role="dialog" aria-labelledby="createNewMessage" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <form class="modal-content" method="POST" action="scripts/createMessage.php">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create new message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="titleInput">Title</label>
+                            <input type="text" class="form-control form-control-lg" name="title" id="titleInput" placeholder="Title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="messageInput">Message</label>
+                            <input type="text" class="form-control form-control-lg" name="message" id="messageInput" placeholder="Message">
+                        </div>
+                        <div class="form-group">
+                            <label for="datepicker">Date</label>
+                            <input type="text"class="form-control form-control-lg" id="datepicker" name="date" placeholder="Date" required>
+                        </div>
+                        <script>
 
+                        $('#datepicker').datepicker({
+                            format: "dd/mm/yyyy",
+                            maxViewMode: 0,
+                            todayHighlight: true
+                        });
+
+                        </script>
+                        <div class="form-group">
+                            <label for="backgroundInput">Background</label>
+                            <select class="selectpicker form-control form-control-lg" data-style="btn-primary" name="background" id="backgroundInput">
+                                <option selected value="">None</option>
+                                <?php
+
+                                foreach(array_diff(scandir('assets/backgrounds'), array('.', '..')) as $val)  {
+                                    echo '<option value="' . $val . '">' . $val . '</option>';
+                                }
+                                // FIX BUG CHECKBOX ASKS updateScript
+                                ?>
+                            </select>
+                        </div>
+                        <div class="custom-control custom-checkbox checkbox-xl">
+                            <input class="custom-control-input" type="checkbox" id="permanentInput" name="permanent">
+                            <label class="custom-control-label" for="permanentInput">Permanent message?</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-lg btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <form method="POST" action="scripts/saveSettings.php" class="card">
             <div class="card-header"><h3><i class="fas fa-cogs"></i> Settings</h3>
                 <ul class="nav nav-tabs card-header-tabs" id="settings-list" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#lights" role="tab" aria-controls="description" aria-selected="true"><i class="fas fa-toggle-on"></i> Switches</a>
+                        <a class="nav-link active" href="#switches" role="tab" aria-controls="switches" aria-selected="true"><i class="fas fa-toggle-on"></i> Switches</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  href="#loading_screen" role="tab" aria-controls="history" aria-selected="false"><i class="fas fa-spinner"></i> Loading Screen</a>
+                        <a class="nav-link" href="#messages" role="tab" aria-controls="messages" aria-selected="false"><i class="fas fa-comment-dots"></i> Messages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#cams" role="tab" aria-controls="deals" aria-selected="false"><i class="fas fa-camera"></i> Camera's</a>
+                        <a class="nav-link"  href="#loading_screen" role="tab" aria-controls="loading_screen" aria-selected="false"><i class="fas fa-spinner"></i> Loading Screen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#discord" role="tab" aria-controls="deals" aria-selected="false"><i class="fab fa-discord"></i> Discord</a>
+                        <a class="nav-link" href="#cams" role="tab" aria-controls="cameras" aria-selected="false"><i class="fas fa-camera"></i> Camera's</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#discord" role="tab" aria-controls="discord" aria-selected="false"><i class="fab fa-discord"></i> Discord</a>
                     </li>
                 </ul>
             </div>
             <div class="card-body">
                 <div class="tab-content h-100">
-                    <div class="tab-pane active h-100" id="lights" role="tabpanel">
+                    <div class="tab-pane active h-100" id="switches" role="tabpanel">
                         <div class="form-row h-100">
                             <div class="col-3 h-100">
                                 <h3 class="card-title"><i class="fas fa-toggle-on"></i> Switches</h3>
@@ -30,6 +106,7 @@
                                     <b>Auto: </b>Automatically turn on on night.<br>
                                     <b>Auto Alarm: </b>Auto and alarm combined.<br>
                                 </small>
+                                <button type="button" data-toggle="modal" data-target="#createSwitch" class="btn btn-success btn-lg mt-3"><i class="fas fa-plus"></i> Add new switch</button>
                             </div>
                             <div class="col h-100 d-flex flex-wrap overflow-auto">
                             
@@ -58,6 +135,43 @@
                                     }
                                 ?>
                             </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane h-100" id="messages" role="tabpanel">
+                        <div class="h-100 d-flex flex-wrap overflow-auto">
+                            <table class="table text-center m-0">
+                                <thead>
+                                    <tr class="table-dark">
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Message</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Background</th>
+                                        <th scope="col">Permanent</th>
+                                        <th scope="col">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="messages">
+                                <?php
+
+                                $sql = "SELECT * FROM messages WHERE permanent = 1 OR date >= CURDATE() ORDER BY permanent, date DESC";
+                                $sth = $db->prepare($sql); 
+                                $sth->execute();
+
+                                while ($row = $sth->fetch()) {
+                                    echo '<tr>';
+                                    echo '<td>' . $row["title"] . '</td>';
+                                    echo '<td>' . $row["message"] . '</td>';
+                                    echo '<td>' . $row["date"] . '</td>';
+                                    echo '<td>' . $row["background"] . '</td>';
+                                    echo '<td>' . (($row["permanent"] == 1)?'<i class="fas fa-check-circle"></i>':'<i class="fas fa-times-circle"></i>') . '</td>';
+                                    echo '<td><a class="btn btn-lg btn-danger" href="scripts/deleteMessage.php?id=' . $row["id"] . '">Delete</a></td>';
+                                    echo '</tr>';
+                                }
+                            
+                                ?>
+                                </tbody>
+                            </table>
+                            <button type="button" data-toggle="modal" data-target="#createMessage" class="btn btn-success btn-block btn-lg float-right"><i class="fas fa-plus"></i> Add new message</button>
                         </div>
                     </div>
                     <div class="tab-pane h-100" id="loading_screen" role="tabpanel">  

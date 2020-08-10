@@ -30,4 +30,4 @@ try {
     //send error
 }
 
-header("location: ../messages.php");
+header("location: ../settings.php");

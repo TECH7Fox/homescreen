@@ -3,7 +3,7 @@
 include "connectdb.php";
 
 if (!isset($_GET["id"])) {
-    header("location: ../messages.php");
+    header("location: ../settings.php");
     die();
 }
 
@@ -15,10 +15,10 @@ try {
     $sth->execute($params);
 } catch (Exception $e) {
     //send error
-    header("location: ../messages.php");
+    header("location: ../settings.php");
     die();
 }
 
-header("location: ../messages.php");
+header("location: ../settings.php");
 
 ?>
