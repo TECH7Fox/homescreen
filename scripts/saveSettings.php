@@ -3,12 +3,12 @@
 include "connectdb.php";
 include "dotEnv.php";
 
-$sql = "SELECT location FROM switches";
+$sql = "SELECT name FROM switches";
 $sth = $db->prepare($sql);
 $sth->execute();
 
 while ($row = $sth->fetch()) {
-    $sql = "UPDATE switches SET value = " . "'" . $_POST[$row["location"]] . "' WHERE location = '" . $row["location"] . "'";
+    $sql = "UPDATE switches SET value = " . "'" . $_POST[$row["name"]] . "' WHERE name = '" . $row["name"] . "'";
     $sth2 = $db->prepare($sql);
     $sth2->execute();
 }

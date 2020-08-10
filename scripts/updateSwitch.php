@@ -5,11 +5,11 @@ include "../scripts/dotEnv.php";
 
 $switch = explode("_", $_GET["switch"]);
 
-$sql = "UPDATE switches SET status = " . ($_GET["status"] == "true"?1:0) . " WHERE location = '" . $switch[0] . "' AND type = '" . $switch[1] . "'";
+$sql = "UPDATE switches SET status = " . ($_GET["status"] == "true"?1:0) . " WHERE name = '" . $switch[0] . "' AND type = '" . $switch[1] . "'";
 $sth = $db->prepare($sql);
 $sth->execute();
 
-$sql = "SELECT on_code, off_code FROM switches WHERE location = '" . $switch[0] . "' AND type = '" . $switch[1] . "'";
+$sql = "SELECT on_code, off_code FROM switches WHERE name = '" . $switch[0] . "' AND type = '" . $switch[1] . "'";
 $sth = $db->prepare($sql);
 $sth->execute();
 $row = $sth->fetch();

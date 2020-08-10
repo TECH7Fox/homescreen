@@ -4,12 +4,14 @@ USE homescreen;
 
 DROP TABLE IF EXISTS switches;
 CREATE TABLE switches (
-  location VARCHAR(30),
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(30),
   type VARCHAR(30),
   status BIT,
   value VARCHAR(10),
   on_code SMALLINT,
-  off_code SMALLINT
+  off_code SMALLINT,
+  PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS servers; 
@@ -41,14 +43,14 @@ CREATE TABLE messages (
   PRIMARY KEY (id)
 );
 
-INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("garden",  "light", 0, "manual", 1234, 1237);
-INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("outside", "light", 0, "manual", 1234, 1237);
-INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("desk",    "light", 0, "manual", 6273, 6276);
-INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("closet",  "light", 0, "manual", 6511, 6514);
-INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("couch",   "light", 0, "manual", 1234, 1237);
-INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("kitchen", "light", 0, "manual", 1234, 1237);
-INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("piano",   "light", 0, "manual", 1234, 1237);
-INSERT INTO switches (location, type, status, value, on_code, off_code) VALUES ("tv",      "light", 0, "manual", 1234, 1237);
+INSERT INTO switches (name, type, status, value, on_code, off_code) VALUES ("garden",  "light", 0, "manual", 1234, 1237);
+INSERT INTO switches (name, type, status, value, on_code, off_code) VALUES ("outside", "light", 0, "manual", 1234, 1237);
+INSERT INTO switches (name, type, status, value, on_code, off_code) VALUES ("desk",    "light", 0, "manual", 6273, 6276);
+INSERT INTO switches (name, type, status, value, on_code, off_code) VALUES ("closet",  "light", 0, "manual", 6511, 6514);
+INSERT INTO switches (name, type, status, value, on_code, off_code) VALUES ("couch",   "light", 0, "manual", 1234, 1237);
+INSERT INTO switches (name, type, status, value, on_code, off_code) VALUES ("kitchen", "light", 0, "manual", 1234, 1237);
+INSERT INTO switches (name, type, status, value, on_code, off_code) VALUES ("piano",   "light", 0, "manual", 1234, 1237);
+INSERT INTO switches (name, type, status, value, on_code, off_code) VALUES ("tv",      "light", 0, "manual", 1234, 1237);
 
 INSERT INTO servers (type, name, ip, url) VALUES ("modem", "Connect Box Ziggo", "192.168.178.1", "192.168.178.1");
 INSERT INTO servers (type, name, ip, url) VALUES ("cam", "Dome Camera", "192.168.178.9", "http://192.168.178.10:8080/54fa5cc90312fbb7be0d206233fbe544/embed/r2knn1w6yK/olkrGJcEwA/fullscreen%7Cjquery");
