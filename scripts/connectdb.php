@@ -22,7 +22,7 @@ function sendError($error, $fatal) {
     }
 
     $params = array(
-        ":notification"   => $error,
+        ":notification" => $error,
         ":level" => $level,
         ":timestamp" => date("Y-m-d H:i:s")
     );
