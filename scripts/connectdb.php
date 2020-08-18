@@ -27,10 +27,5 @@ function sendError($error, $fatal) {
         ":timestamp" => date("Y-m-d H:i:s")
     );
 
-    echo $error;
-    echo " | ";
-    echo $level;
-    echo " | ";
-    echo date("Y-m-d H:i:s");
     $sth->execute($params);
 }

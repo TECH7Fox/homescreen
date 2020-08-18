@@ -26,7 +26,7 @@ CREATE TABLE servers (
 DROP TABLE IF EXISTS notifications; 
 CREATE TABLE notifications (
   id INT NOT NULL AUTO_INCREMENT,
-  notification VARCHAR(50),
+  notification VARCHAR(500),
   timestamp TIMESTAMP,
   level INT,
   PRIMARY KEY (id)
