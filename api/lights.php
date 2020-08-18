@@ -11,5 +11,7 @@ while ($row = $sth->fetch()) {
     $switches[] = $row;
 }
 
-$json = json_encode($switches);
-echo $json;
+if (empty($switches)) {
+    $json = json_encode($switches);
+    echo $json;
+}
