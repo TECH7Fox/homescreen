@@ -12,7 +12,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 function sendError($error, $fatal) {
     global $db;
 
-    $sql = "INSERT INTO notifications (notification, timestamp, level) VALUES (:notification, :timestamp, :level";
+    $sql = "INSERT INTO notifications (notification, timestamp, level) VALUES (:notification, :timestamp, :level)";
     $sth = $db->prepare($sql); 
 
     if ($fatal) {
