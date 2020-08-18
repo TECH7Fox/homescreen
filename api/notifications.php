@@ -2,7 +2,7 @@
 
 include "../scripts/connectdb.php";
 
-$sql = "SELECT * FROM notifications ORDER by timestamp";
+$sql = "SELECT * FROM notifications ORDER by timestamp DESC";
 $sth = $db->prepare($sql); 
 $sth->execute();
 
