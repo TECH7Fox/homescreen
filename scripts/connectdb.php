@@ -26,5 +26,8 @@ function sendError($error, $fatal) {
         ":level" => $level
     );
 
+    echo $error;
+    echo " | ";
+    echo $level;
     $sth->execute($params);
 }
