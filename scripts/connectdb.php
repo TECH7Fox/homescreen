@@ -10,6 +10,8 @@ $db = new PDO($connectStr, $username, $password);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 
 function sendError($error, $fatal) {
+    global $db;
+
     $sql = "INSERT INTO notifications (notification, timestamp, level) VALUES (:notification, now(), :level";
     $sth = $db->prepare($sql); 
 
