@@ -27,7 +27,7 @@ $params = array(
 try {
     $sth->execute($params);
 } catch (Exception $e) {
-    //send error
+    sendError($e, 3);
 }
 
 header("location: ../settings.php");

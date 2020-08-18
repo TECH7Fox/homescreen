@@ -23,6 +23,10 @@ $_ENV["discord"]["sendby_arm"]     = $_POST["sendby_arm"];
 $_ENV["discord"]["sendby_unarm"]   = $_POST["sendby_unarm"];
 $_ENV["discord"]["sendby_tripped"] = $_POST["sendby_tripped"];
 
-updateDotEnv($_ENV);
+try {
+    updateDotEnv($_ENV);
+} catch (Exception $e) {
+    sendError($e, 3);
+}
 
 header("location: ../settings.php");

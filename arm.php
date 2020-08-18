@@ -3,6 +3,9 @@
 $_ENV["alarm"]["armed"] = 1;
 updateDotEnv($_ENV);
 
+shell_exec("gpio mode 21 out");
+shell_exec("gpio write 21 0");
+
 if ($_ENV["discord"]["sendby_arm"] == 1) {
     shell_exec('python /var/www/html/scripts/discord.py "Alarm activated!"');
 }

@@ -1,5 +1,7 @@
 <?php
 
+include "connectdb.php";
+
 $script = $_GET["script"];
 
 if (strpos($script, "py")) {
@@ -7,6 +9,7 @@ if (strpos($script, "py")) {
 } elseif (strpos($script, "sh")) {
     $type = "bash";
 } else {
+    sendError("Not supported script type: $script.", 2);
     die();
 }
 

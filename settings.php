@@ -139,7 +139,7 @@
                     </div>
                     <div class="tab-pane h-100" id="messages" role="tabpanel">
                         <div class="h-100 d-flex flex-wrap overflow-auto">
-                            <table class="table text-center m-0">
+                            <table class="table mr-5 ml-5 text-center m-0">
                                 <thead>
                                     <tr class="table-dark">
                                         <th scope="col">Title</th>
@@ -171,7 +171,7 @@
                                 ?>
                                 </tbody>
                             </table>
-                            <button type="button" data-toggle="modal" data-target="#createMessage" class="btn btn-success btn-block btn-lg float-right"><i class="fas fa-plus"></i> Add new message</button>
+                            <button type="button" data-toggle="modal" data-target="#createMessage" class="btn btn-success mr-5 ml-5 btn-block btn-lg float-right"><i class="fas fa-plus"></i> Add new message</button>
                         </div>
                     </div>
                     <div class="tab-pane h-100" id="loading_screen" role="tabpanel">  
