@@ -33,8 +33,6 @@
                         <tbody id="scripts">
                             <?php
     
-                            include "scripts/connectdb.php";
-    
                             foreach(array_diff(scandir('scripts/auto'), array('.', '..')) as $val)  {
 
                                 $output = shell_exec("ps aux | pgrep -lf $val");
