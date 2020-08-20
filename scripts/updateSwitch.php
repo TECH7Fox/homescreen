@@ -35,7 +35,7 @@ $row = $sth->fetch();
 
 try {
     for ($i = 1; $i <= 3; $i++) {
-        shell_exec($_ENV["paths"]["433Utils"] . "/433Utils/RPi_utils/codesend " . ($_GET["status"] == "true"?$row["on_code"]:$row["off_code"]));
+        echo shell_exec("sudo " . $_ENV["paths"]["433Utils"] . "/433Utils/RPi_utils/codesend " . ($_GET["status"] == "true"?$row["on_code"]:$row["off_code"]));
     }
 } catch (Exception $e) {
     sendError($e, 3);
