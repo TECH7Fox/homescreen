@@ -19,7 +19,7 @@ $params = array(
 );
 
 try {
-    $sth->execute();
+    $sth->execute($params);
 } catch (Exception $e) {
     sendError($e, 3);
     die();
