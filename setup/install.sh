@@ -1,3 +1,10 @@
+
+echo install system requirements
+sed 's/#.*//' requirementsSystem.txt | xargs sudo apt-get install
+
+echo install python requirements
+pip install --requirement requirementsPython.txt
+
 echo download 433Utils
 cd /home/pi
 git clone --recursive git://github.com/ninjablocks/433Utils.git
@@ -5,9 +12,6 @@ git clone --recursive git://github.com/ninjablocks/433Utils.git
 echo install 433Utils
 cd 433Utils/RPi_utils
 make
-
-echo Change permissions of 433Utils for PHP
-#sudo chmod 707 ./codesend
 
 echo Install MySQL
 sudo /usr/bin/mysql_secure_installation

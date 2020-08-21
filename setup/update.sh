@@ -1,5 +1,8 @@
 #get version
 #check for new versions
 
-#run pip requirements
-#run apt-get requirements
+echo install system requirements
+sed 's/#.*//' requirementsSystem.txt | xargs sudo apt-get install
+
+echo install python requirements
+pip install --requirement requirementsPython.txt
