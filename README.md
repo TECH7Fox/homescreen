@@ -20,9 +20,11 @@ Clone the repository:
 
     git clone --recursive git://github.com/TECH7Fox/homescreen.git
 
-Run the install script:
+Run the install scripts:
 
     sudo bash homescreen/setup/install.sh 
+    sed 's/#.*//' requirements.system.txt | xargs sudo apt-get install
+    pip install --requirement requirements.txt
 
 Add `codesend` to www-data visudo:
 

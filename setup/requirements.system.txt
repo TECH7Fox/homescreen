@@ -1,0 +1,11 @@
+# Tools.
+fping  # fast pinger.
+pkill  # kill processes by name.
+
+# Interpreters.
+python3
+php
+apache2
+libapache2-mod-php
+mysql-server
+php-mysql

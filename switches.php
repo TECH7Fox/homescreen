@@ -14,7 +14,7 @@
 
                     while ($row = $sth->fetch()) { ?>
                         <div class="form-group mr-5 ml-5">
-                            <h6><?php echo (($row["type"] == "light")?'<i class="fas fa-lightbulb"></i> ':"") . $row["name"] . " " . $row["type"]; ?></h6>
+                            <h6><?php echo '<i class="' . icon($row["type"]) . '"></i> ' . $row["name"] . " " . $row["type"]; ?></h6>
                             <input type="checkbox" id="<?php echo $row["name"] . "_" . $row["type"]; ?>" 
                             <?php echo $row["status"] == 1?"checked ":""; echo $row["value"] !== "manual"?"disabled checked ":'data-onstyle="success"'; ?> 
                             data-toggle="toggle" data-on="<?php echo $row["value"] !== "manual"?"Automatic":""; ?>" 

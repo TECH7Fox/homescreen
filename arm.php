@@ -7,7 +7,7 @@ shell_exec("gpio mode 21 out");
 shell_exec("gpio write 21 0");
 
 if ($_ENV["discord"]["sendby_arm"] == 1) {
-    shell_exec('python3 /var/www/html/scripts/discord.py "Alarm activated!"');
+    shell_exec('python3 ' . $_SERVER['DOCUMENT_ROOT'] . '/scripts/discord.py "Alarm activated!"');
 }
 
 ?>

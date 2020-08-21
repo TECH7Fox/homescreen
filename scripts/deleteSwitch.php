@@ -2,13 +2,19 @@
 
 include "../scripts/connectdb.php";
 
-if (empty($_GET["id"])) {
+if (!isset($_GET["id"])) {
     header("location: ../settings.php");
     die();
 }
 
-$sql = "DELETE FROM switches WHERE id = " . $_GET["id"];
+$sql = "DELETE FROM switches WHERE id = :id";
 $sth = $db->prepare($sql);
-$sth->execute();
+$params = array(":id" => $_GET["id"]);
+
+try {
+    $sth->execute($params);
+} catch (Exception $e) {
+    sendError($e, 3);
+}
 
 header("location: ../settings.php");

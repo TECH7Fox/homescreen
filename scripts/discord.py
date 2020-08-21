@@ -1,9 +1,14 @@
 import sys
 import http.client
+import configparser
+
+env = configparser.ConfigParser()
 
 def send( message ):
 
-    webhookurl = "https://discordapp.com/api/webhooks/663044973326893056/-uFPjN7ks2Qks7voSwp9q6b_SV1SxYQx7A7n0scyfTgVj79f9YdoKQl9VVem9oGdhfh_"
+    env.read("/var/www/html/config/.env")
+
+    webhookurl = env["discord"]["webhook"]
  
     formdata = "------:::BOUNDARY:::\r\nContent-Disposition: form-data; name=\"content\"\r\n\r\n" + message + "\r\n------:::BOUNDARY:::--"
   

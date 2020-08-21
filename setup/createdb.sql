@@ -43,14 +43,14 @@ CREATE TABLE messages (
   PRIMARY KEY (id)
 );
 
-INSERT INTO switches (name, type, status, value, on_code, off_code) VALUES ("jordy desk", "light", 0, "manual", 6273, 6276);
-INSERT INTO switches (name, type, status, value, on_code, off_code) VALUES ("jordy closet", "light", 0, "manual", 6511, 6514);
+INSERT INTO switches (name, type, status, value, on_code, off_code) VALUES ("jordyDesk", "light", 0, "manual", 6273, 6276);
+INSERT INTO switches (name, type, status, value, on_code, off_code) VALUES ("jordyCloset", "light", 0, "manual", 6511, 6514);
 INSERT INTO switches (name, type, status, value, on_code, off_code) VALUES ("outside", "light", 0, "manual", 5441, 5444);
 
-INSERT INTO servers (type, name, ip, url) VALUES ("modem", "Connect Box Ziggo", "192.168.178.1", "192.168.178.1");
-INSERT INTO servers (type, name, ip, url) VALUES ("cam", "Dome Camera", "192.168.178.9", "http://192.168.178.10:8080/54fa5cc90312fbb7be0d206233fbe544/embed/r2knn1w6yK/olkrGJcEwA/fullscreen%7Cjquery");
-INSERT INTO servers (type, name, ip, url) VALUES ("cam", "WL Camera 2", "192.168.178.8", "none");
-INSERT INTO servers (type, name, ip, url) VALUES ("cam", "WL Camera 1", "192.168.178.7", "none");
+INSERT INTO servers (type, name, ip, url) VALUES ("server", "Connect Box Ziggo", "192.168.178.1", "192.168.178.1");
+INSERT INTO servers (type, name, ip, url) VALUES ("camera", "Dome Camera", "192.168.178.9", "http://192.168.178.10:8080/54fa5cc90312fbb7be0d206233fbe544/embed/r2knn1w6yK/olkrGJcEwA/fullscreen%7Cjquery");
+INSERT INTO servers (type, name, ip, url) VALUES ("camera", "WL Camera 2", "192.168.178.8", "none");
+INSERT INTO servers (type, name, ip, url) VALUES ("camera", "WL Camera 1", "192.168.178.7", "none");
 INSERT INTO servers (type, name, ip, url) VALUES ("cctv", "Camera Recorder", "192.168.178.10", "192.168.178.10:8080");
 INSERT INTO servers (type, name, ip, url) VALUES ("alarm", "Alarm System", "192.168.178.11", "192.168.178.11");
 

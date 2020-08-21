@@ -19,7 +19,8 @@
     <?php
         include "scripts/connectdb.php";
         include "scripts/dotEnv.php";
-        include "scripts/customStyle.php";
+        include "scripts/functions.php";
+        include "scripts/style.php";
     ?>
 </head>
 <body id="body" class="overflow-hidden" style="padding-top: 10vh;">

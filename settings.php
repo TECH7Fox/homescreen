@@ -2,7 +2,7 @@
     <main class="container">
         <div class="modal fade" id="createSwitch" tabindex="-1" role="dialog" aria-labelledby="createNewSwitch" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
-                <form class="modal-content" method="POST" action="scripts/createMessage.php">
+                <form class="modal-content" method="POST" action="scripts/createSwitch.php">
                     <div class="modal-header">
                         <h5 class="modal-title">Create new switch</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -10,7 +10,28 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Work in progress
+                        <div class="form-group">
+                            <label for="NameInput">Name</label>
+                            <input type="text" class="form-control form-control-lg" name="name" id="nameInput" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="backgroundInput">Type</label>
+                            <select class="selectpicker form-control form-control-lg" data-style="btn-primary" name="type" id="typeInput">
+                                <option value="light">Light</option>
+                                <option value="server">Server</option> 
+                                <option value="camera">Camera</option>
+                                <option value="tv">Tv</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="on_codeInput">On code</label>
+                            <input type="text" class="form-control form-control-lg" name="on_code" id="on_codeInput" placeholder="1234" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="off_codeInput">Off code</label>
+                            <input type="text" class="form-control form-control-lg" name="off_code" id="off_codeInput" placeholder="1234" required>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">Close</button>
@@ -119,7 +140,7 @@
                                 while ($row = $sth->fetch()) {
                                         echo '
                                             <div class="form-group mr-auto ml-auto">
-                                            <h5>' . (($row["type"] == "light")?'<i class="fas fa-lightbulb"></i> ':"") . $row["name"] . " " . $row["type"] . '</h5>
+                                            <h5><i class="' . icon($row["type"]) . '"></i> ' . $row["name"] . " " . $row["type"] . '</h5>
                                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                             <label class="btn btn-lg btn-primary' . (($row["value"] == "manual")?' active':"") . '">
                                             <input type="radio" name="' . $row["name"] . '"' . (($row["value"] == "manual")?' checked="" ':"") . 'value="manual" autocomplete="off"> Manual
@@ -163,7 +184,7 @@
                                     echo '<td>' . $row["message"] . '</td>';
                                     echo '<td>' . $row["date"] . '</td>';
                                     echo '<td>' . $row["background"] . '</td>';
-                                    echo '<td>' . (($row["permanent"] == 1)?'<i class="fas fa-check-circle"></i>':'<i class="fas fa-times-circle"></i>') . '</td>';
+                                    echo '<td><i class="' . (($row["permanent"] == 1)?'fas fa-check-circle':'fas fa-times-circle') . '"></i></td>';
                                     echo '<td><a class="btn btn-lg btn-danger" href="scripts/deleteMessage.php?id=' . $row["id"] . '">Delete</a></td>';
                                     echo '</tr>';
                                 }
@@ -205,6 +226,7 @@
                                 <small class="form-text text-muted">Select which camera's to show.</small>
                             </div>
                             <div class="col h-100 d-flex flex-wrap overflow-auto">
+                                <?php var_dump($_ENV); ?>
                                 <?php 
                                     for ($i = 1; $i <= 4; $i++) { ?>
                                         <div class="form-group mr-auto ml-auto">
@@ -212,7 +234,7 @@
                                             <select class="selectpicker" data-style="btn-primary" name="camera_<?php echo $i; ?>">
                                                 <?php
 
-                                                $sql = "SELECT name FROM servers WHERE type = 'cam'";
+                                                $sql = "SELECT name FROM servers WHERE type = 'camera'";
                                                 $sth = $db->prepare($sql); 
                                                 $sth->execute();
 

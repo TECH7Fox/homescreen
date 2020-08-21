@@ -1,0 +1,4 @@
+astral==
+http==
+configparser==4.0.2
+requests==2.23.0

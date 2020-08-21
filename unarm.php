@@ -11,7 +11,7 @@
         shell_exec("gpio write 21 1");
     
         if ($_ENV["discord"]["sendby_unarm"] == 1) {
-            shell_exec('python3 /var/www/html/scripts/discord.py "Alarm deactivated!"');
+            shell_exec('python3 ' . $_SERVER['DOCUMENT_ROOT'] . '/scripts/discord.py "Alarm deactivated!"');
         }
 
     } else {
