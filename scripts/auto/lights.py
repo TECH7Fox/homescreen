@@ -15,7 +15,7 @@ env = configparser.ConfigParser()
 
 while True:
     raw = req.get("http://localhost/api/lights.php")
-    if not raw:
+    if raw:
         json_object = raw.json()
     
         env.read("/var/www/html/config/.env")
