@@ -226,7 +226,6 @@
                                 <small class="form-text text-muted">Select which camera's to show.</small>
                             </div>
                             <div class="col h-100 d-flex flex-wrap overflow-auto">
-                                <?php var_dump($_ENV); ?>
                                 <?php 
                                     for ($i = 1; $i <= 4; $i++) { ?>
                                         <div class="form-group mr-auto ml-auto">

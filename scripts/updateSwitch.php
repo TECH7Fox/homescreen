@@ -5,10 +5,18 @@ include "../scripts/dotEnv.php";
 
 $switch = explode("_", $_GET["switch"]);
 
-$sql = "UPDATE switches SET status = " . (($_GET["status"] == "true")?1:0) . " WHERE name = '" . $switch[0] . "' AND type = '" . $switch[1] . "'";
+$sql = "UPDATE switches SET status = :status WHERE name = :name AND type = :type";
 $sth = $db->prepare($sql);
-
-//update with params
+if ($_GET["status"] == "true") {
+    $status = 1;
+} else {
+    $status = 0;
+}
+$params = array(
+    ":status" => $status,
+    ":name"   => $switch[0],
+    ":type"   => $switch[1] 
+);
 
 try {
     $sth->execute();
@@ -17,10 +25,10 @@ try {
     die();
 }
 
-$sql = "SELECT on_code, off_code FROM switches WHERE name = ':name' AND type = ':type'";
+$sql = "SELECT on_code, off_code FROM switches WHERE name = :name AND type = :type";
 $sth = $db->prepare($sql);
 $params = array(
-    ":name"   => $switch[0],
+    ":name" => $switch[0],
     ":type" => $switch[1]
 );
 
