@@ -1,23 +1,30 @@
 import requests as req
 from datetime import datetime
+from datetime import date
 import time
 import os
 import json
 import configparser
 
-from astral import LocationInfo
-from astral.sun import sun
+from astral import Astral
 
-city = LocationInfo("Amsterdam", "Netherlands", "Europe/Amsterdam")
-s = sun(city.observer, date=datetime.now())
+city_name = 'Amsterdam'
+a = Astral()
+a.solar_depression = 'civil'
+city = a[city_name]
+
+
 
 env = configparser.ConfigParser()
 
 while True:
-    raw = req.get("http://localhost/api/lights.php")
-    if raw:
-        json_object = raw.json()
     
+    s = city.sun(date=date.today(), local=True)
+    raw = req.get("http://localhost/api/lights.php")
+
+    if raw:
+
+        json_object = raw.json()
         env.read("/var/www/html/config/.env")
     
         for switch in json_object:
