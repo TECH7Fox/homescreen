@@ -1,10 +1,8 @@
 # About Homescreen
 
+**Homescreen** is a **touchscreen friendly** system to **automate**, **control** and **secure** your home.
+
 ## Features
-
-**Homescreen** is a **touchscreen friendly** system to `automate`, `control` and `secure` your home.
-
-### It can:
 - automatically or manually toggle **433Mhz** switches
 - Show ip camera's
 - Show status of devices on your local network

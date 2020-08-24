@@ -13,20 +13,17 @@ a = Astral()
 a.solar_depression = 'civil'
 city = a[city_name]
 
-
-
 env = configparser.ConfigParser()
 
 while True:
-    
     s = city.sun(date=date.today(), local=True)
     raw = req.get("http://localhost/api/lights.php")
 
     if raw:
 
         json_object = raw.json()
-        env.read("/var/www/html/config/.env")
-    
+        env.read("/var/www/html/config/.env")    
+
         for switch in json_object:
             if datetime.now() >= s['sunset'].replace(tzinfo=None) or datetime.now() <= s['sunrise'].replace(tzinfo=None):
                 if switch["value"] == "auto_alarm":
