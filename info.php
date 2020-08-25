@@ -37,7 +37,7 @@
 
                                 $output = shell_exec("ps aux | pgrep -lf $val");
                                 //fix this bug so all processes work
-                                if (strpos($output, "python3")) { 
+                                if (strpos($output, "python")) { 
                                     $status = true;
                                 } else {
                                     $status = false;

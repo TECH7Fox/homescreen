@@ -10,4 +10,14 @@ function icon($icon) {
     }
 }
 
+function week() {
+    if (isset($_GET["week"])) {
+        switch($_GET["week"]) {
+            case "previous": return "?week=previous";
+            case "next"    : return "?week=next";
+            default: continue;
+        }
+    }
+}
+
 ?>
