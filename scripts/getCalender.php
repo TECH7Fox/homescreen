@@ -6,7 +6,7 @@ if (isset($_GET["week"])) {
     switch($_GET["week"]) {
         case "previous": $week--; break;
         case "next"    : $week++; break;
-        default: continue;
+        default: break;
     }    
 }
 
@@ -22,7 +22,7 @@ for ($num = 1; $num <= 50; $num++) {
 
     if (strpos($site, 'HEITO19AO-B') !== false) {
         $dom = new DOMDocument();
-        $dom->loadHTML($site, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        @$dom->loadHTML($site, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         $xpath = new DOMXPath($dom);
         $tags = $xpath->evaluate("//table");
     
