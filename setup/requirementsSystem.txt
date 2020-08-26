@@ -1,9 +1,5 @@
-# Tools.
-fping  # fast pinger.
-pkill  # kill processes by name.
-
-# Interpreters.
-python3
+fping
+python
 php
 apache2
 libapache2-mod-php

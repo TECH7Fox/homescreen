@@ -18,7 +18,7 @@ sudo /usr/bin/mysql_secure_installation
 
 echo Change permissions of mysql for PHP
 sudo mysql --user=root --password
-DROP USER root
+DROP USER root;
 create user root@localhost identified by 'root';
 grant all privileges on *.* to root@localhost;
 FLUSH PRIVILEGES;
