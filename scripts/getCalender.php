@@ -1,5 +1,7 @@
 <?php
 
+set_time_limit(70);
+
 $week = date("W");
 
 if (isset($_GET["week"])) {
@@ -12,7 +14,7 @@ if (isset($_GET["week"])) {
 
 $week = sprintf("%02d", $week);
 
-for ($num = 1; $num <= 50; $num++) {
+for ($num = 1; $num <= 70; $num++) {
     $num_padded = sprintf("%02d", $num);
 
     date_default_timezone_set("Europe/Amsterdam");
@@ -68,8 +70,10 @@ for ($num = 1; $num <= 50; $num++) {
 
         $site = $dom->saveHTML();
         echo $site;
-        break;
+        die();
     }
 }
+
+echo '<h2 class="position-fixed ml-n5 mt-n5">No calender found</h2>';
 
 ?>
