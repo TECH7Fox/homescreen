@@ -12,7 +12,7 @@
                             <h5 class="card-header"><?php echo empty($_ENV["cams"]["camera_$i"])?"None":$_ENV["cams"]["camera_$i"] ?></h5>
                             <?php
                             
-                            $sql = "SELECT url FROM servers WHERE type = 'cam' AND name = '" . $_ENV["cams"]["camera_$i"] . "'";
+                            $sql = "SELECT url FROM servers WHERE type = 'camera' AND name = '" . $_ENV["cams"]["camera_$i"] . "'";
                             $sth = $db->prepare($sql); 
                             $sth->execute();
                             $row = $sth->fetch();
