@@ -27,7 +27,7 @@ for ($num = 1; $num <= 50; $num++) {
         $tags = $xpath->evaluate("//table");
     
         foreach ($tags as $tag) {        
-            $tag->setAttribute("class", "table table-bordered table-active");
+            $tag->setAttribute("class", "table table-bordered table-active border-white");
         }
 
         $tags = $xpath->evaluate("//td/table");
@@ -42,17 +42,16 @@ for ($num = 1; $num <= 50; $num++) {
         $tags = $xpath->evaluate('//center/font[4]');
         $tags[0]->parentNode->removeChild($tags[0]);
 
-        $tags = $xpath->evaluate('//center/font[2]/b');
-        $value = $tags[0]->nodeValue;
-        
-        $tags[0]->parentNode->setAttribute("class", "text-info");
-        $tags[0]->parentNode->nodeValue = $value;
-
         $tags = $xpath->evaluate('//center/font[3]');
         $tags[0]->parentNode->removeChild($tags[0]);
 
-        $tags = $xpath->evaluate('//td');
+        $tags = $xpath->evaluate('//center/font[2]/b');
+        $value = $tags[0]->nodeValue;
+        $tags[0]->parentNode->setAttribute("face", "Lato");
+        $tags[0]->parentNode->setAttribute("class", "text-info");
+        $tags[0]->parentNode->nodeValue = $value;
 
+        $tags = $xpath->evaluate('//td');
         foreach ($tags as $tag) {
             if (strpos($tag->nodeValue, ':')) {
                 $times = explode(" ", $tag->nodeValue);
@@ -60,7 +59,7 @@ for ($num = 1; $num <= 50; $num++) {
                 $tag->nodeValue = ($times[1] . " - " . $times[2]);
 
                 if (strtotime($times[1]) <= strtotime(date("H:i")) && strtotime($times[2]) > strtotime(date("H:i"))) {
-                    $tag->parentNode->setAttribute("class", "table-primary");
+                    $tag->parentNode->setAttribute("class", "table-success");
                 }
             } elseif (!strpos($tag->nodeValue, '-') && !empty($tag->nodeValue)) {
                 $tag->setAttribute("class", "table-primary");

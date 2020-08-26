@@ -1,7 +1,7 @@
 <?php include "templates/header.php"; ?>
         <main class="container">
                 <div class="card">
-                    <h3 class="card-header"><i class="fas fa-table"></i> Calender</h3>
+                    <h3 class="card-header"><i class="fas fa-table"></i> Calender <div class="float-right"><?php echo date("l j F Y"); ?></div></h3>
                     <div class="card-body h-100">
                         <div class="h-100 d-flex flex-wrap overflow-auto">
                             <div id="calender" class="ml-auto mr-auto mt-auto mb-auto">
