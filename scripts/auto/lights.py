@@ -13,9 +13,8 @@ a = Astral()
 a.solar_depression = 'civil'
 city = a[city_name]
 
-env = configparser.ConfigParser()
-
 while True:
+    env = configparser.ConfigParser()
     s = city.sun(date=date.today(), local=True)
     raw = req.get("http://localhost/api/lights.php")
 
